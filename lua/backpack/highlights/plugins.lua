@@ -451,7 +451,11 @@ function M.setup(colors, config)
         NeotestTarget = { fg = theme.syn.special3 },
         NeotestTest = { fg = theme.ui.float.fg },
         NeotestUnknown = { fg = theme.syn.deprecated },
-        NeotestWatching = { fg = theme.vcs.changed, },
+        NeotestWatching = { fg = theme.vcs.changed },
+        typescriptExport = { fg = theme.syn.opkeyword, italic = true },
+        typescriptImport = { fg = theme.syn.statement },
+        typescriptDefault = { fg = theme.syn.constant, italic = true },
+        typescriptFuncName = { fg = theme.syn.type },
 
         -- Start vim plugins
         ALEErrorSign = { fg = '#d6a477', bg = '#3a3a3a' },

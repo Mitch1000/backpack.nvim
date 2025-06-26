@@ -54,8 +54,8 @@ function M.setup(colors, config)
         --  Structure	struct, union, enum, etc.
         --  Typedef	A typedef
 
-        -- *Special	any special symbol
-        Special = { fg = theme.syn.special1 },
+        -- Special	any special symbol
+        -- Special = { fg = theme.syn.statement },
         --  SpecialChar	special character in a constant
         --  Tag		you can use CTRL-] on this
         --  Delimiter	character that needs attention
