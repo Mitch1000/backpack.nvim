@@ -42,14 +42,14 @@ function M.setup(colors, config)
         Exception = { fg = theme.syn.special2 },
 
         -- *PreProc	generic Preprocessor
-        PreProc = { fg = theme.syn.preproc },
+        -- PreProc = vim.tbl_extend("force", { fg = theme.syn.preproc }, config.typeStyle),
         --  Include	preprocessor #include
         --  Define		preprocessor #define
         --  Macro		same as Define
         --  PreCondit	preprocessor #if, #else, #endif, etc.
 
         -- *Type		int, long, char, etc.
-        Type = vim.tbl_extend("force", { fg = theme.syn.type }, config.typeStyle),
+        -- Type = vim.tbl_extend("force", { fg = theme.syn.type }, config.typeStyle),
         --  StorageClass	static, register, volatile, etc.
         --  Structure	struct, union, enum, etc.
         --  Typedef	A typedef

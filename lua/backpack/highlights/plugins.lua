@@ -453,9 +453,14 @@ function M.setup(colors, config)
         NeotestUnknown = { fg = theme.syn.deprecated },
         NeotestWatching = { fg = theme.vcs.changed },
         typescriptExport = { fg = theme.syn.opkeyword, italic = true },
+        typescriptGlobal = { fg = theme.syn.preproc, italic = true },
         typescriptImport = { fg = theme.syn.statement },
         typescriptDefault = { fg = theme.syn.constant, italic = true },
         typescriptFuncName = { fg = theme.syn.type },
+        typescriptConsoleMethod = { fg = theme.syn.parameter },
+        typescriptCall = { fg = theme.ui.fg_bright },
+
+        htmlTag = { fg = theme.syn.type },
 
         -- Start vim plugins
         ALEErrorSign = { fg = '#d6a477', bg = '#3a3a3a' },
@@ -546,7 +551,6 @@ function M.setup(colors, config)
         diffFile = { fg = '#94ffff' },
         diffNewFile = { fg = '#d6a477' },
         diffLine = { fg = '#31a6a5' },
-        htmlTag = { fg = '#31a6a5' },
         htmlEndTag = { fg = '#31a6a5' },
         htmlTagName = { fg = '#d6a477' },
         htmlArg = { fg = '#2cf392' },
