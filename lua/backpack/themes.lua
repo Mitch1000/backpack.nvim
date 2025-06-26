@@ -18,6 +18,7 @@
 ---@field type ColorSpec
 ---@field regex ColorSpec
 ---@field deprecated ColorSpec
+---@field null ColorSpec
 ---@field comment ColorSpec
 ---@field punct ColorSpec
 ---@field special1 ColorSpec
@@ -154,6 +155,7 @@ return {
           type       = palette.green,
           regex      = palette.bright_purple,
           deprecated = palette.forest_blue,
+          null       = palette.dark_red,
           none       = palette.terminal_blue,
           comment    = palette.gray_244,
           punct      = palette.gray_244,
