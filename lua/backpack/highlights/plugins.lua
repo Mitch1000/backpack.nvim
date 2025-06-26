@@ -460,7 +460,8 @@ function M.setup(colors, config)
         typescriptConsoleMethod = { fg = theme.syn.parameter },
         typescriptCall = { fg = theme.ui.fg_bright },
 
-        htmlTag = { fg = theme.syn.type },
+        htmlTag = { fg = theme.syn.deprecated },
+        tsxAttrib = { fg = theme.syn.type },
 
         -- Start vim plugins
         ALEErrorSign = { fg = '#d6a477', bg = '#3a3a3a' },
