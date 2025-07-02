@@ -17,7 +17,7 @@ function M.setup(colors, config)
     config = config or require("backpack").config
 
     local highlights = {}
-    for _, highlight in ipairs({ "editor", "syntax", "treesitter", "lsp", "plugins" }) do
+    for _, highlight in ipairs({ "editor", "treesitter", "lsp", "plugins" }) do
         local mod = require("backpack.highlights." .. highlight)
         for hl, spec in pairs(mod.setup(colors, config)) do
             highlights[hl] = spec
