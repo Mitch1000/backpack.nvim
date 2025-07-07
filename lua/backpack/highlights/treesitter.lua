@@ -65,6 +65,7 @@ function M.setup(colors, config)
         -- @constructor            constructor calls and definitions
         ["@constructor"] = { fg = theme.syn.special1 },
         ["@constructor.lua"] = { fg = theme.syn.keyword },
+        ["@label.lua"] = { fg = theme.syn.keyword },
         ["@string.lua"] = { fg = theme.syn.string },
         ["@property.lua"] = { fg = theme.syn.identifier },
         -- @operator               symbolic operators (e.g. `+`, `*`)
