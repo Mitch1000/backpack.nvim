@@ -24,6 +24,7 @@
 ---@field special1 ColorSpec
 ---@field special2 ColorSpec
 ---@field special3 ColorSpec
+---@field special4 ColorSpec
 
 ---@class DiagnosticsElements
 ---@field error ColorSpec
@@ -50,7 +51,10 @@
 ---@field fg_reverse ColorSpec
 ---@field Cursor ColorSpec
 ---@field bg_dim ColorSpec Dimmed background
+---@field fg_m1 ColorSpec Dimmed background
 ---@field bg_m4 ColorSpec
+---@field bg_m5 ColorSpec
+---@field bg_m6 ColorSpec
 ---@field bg_m3 ColorSpec
 ---@field bg_m2 ColorSpec
 ---@field bg_m1 ColorSpec
@@ -96,16 +100,19 @@ return {
       ui = {
         fg         = palette.light1,
         fg_dim     = palette.light2,
-        fg_bright     = palette.light4,
+        fg_bright  = palette.light4,
         fg_reverse = palette.extra_light_blue,
 
         bg_dim     = palette.dark0_hard,
         bg_gutter  = palette.background,
 
-        bg_m4      = palette.dark12,
+        bg_m6      = palette.dark10,
+        bg_m5      = palette.dark11,
+        bg_m4      = palette.dark4,
         bg_m3      = palette.dark3,
         bg_m2      = palette.dark2,
         bg_m1      = palette.dark1,
+        fg_m1      = palette.light4,
         bg         = palette.background,
         bg_p1      = palette.dark4,
         bg_p2      = palette.dark5,
@@ -162,6 +169,7 @@ return {
           special1   = palette.light12,
           special2   = palette.light11,
           special3   = palette.rose,
+          special4   = palette.light8,
       },
       vcs = {
           added   = palette.green,
