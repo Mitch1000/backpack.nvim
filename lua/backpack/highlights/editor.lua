@@ -6,6 +6,8 @@ local M = {}
 function M.setup(colors, config)
     local theme = colors.theme
     config = config or require("backpack").config
+    local bg = not config.transparent and theme.ui.bg or "NONE"
+    local gutter = not config.transparent and theme.ui.bg_gutter or "NONE"
 
     return {
         -- ColorColumn	Used for the columns set with 'colorcolumn'.
@@ -48,17 +50,19 @@ function M.setup(colors, config)
         -- FoldColumn	'foldcolumn'
         FoldColumn = { fg = theme.ui.nontext, bg = theme.ui.bg_gutter },
         -- SignColumn	Column where |signs| are displayed.
-        SignColumn = { fg = theme.ui.special, bg = theme.ui.bg_gutter },
+        SignColumn = { fg = theme.ui.special, bg = gutter },
+
+        CursorSignColumn = { fg = theme.ui.special, bg = 'red' },
         -- IncSearch	'incsearch' highlighting; also used for the text replaced with ":s///c".
         IncSearch = { fg = theme.ui.fg_reverse, bg = theme.diag.warning },
         -- Substitute	|:substitute| replacement text highlighting.
         Substitute = { fg = theme.ui.fg, bg = theme.vcs.removed },
         -- LineNr		Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-        LineNr = { fg = theme.ui.nontext, bg = theme.ui.bg_gutter },
+        LineNr = { fg = theme.ui.nontext, bg = gutter },
         -- LineNrAbove	Line number for when the 'relativenumber' option is set, above the cursor line.
         -- LineNrBelow	Line number for when the 'relativenumber' option is set, below the cursor line.
         -- CursorLineNr	Like LineNr when 'cursorline' is set and 'cursorlineopt' contains "number" or is "both", for the cursor line.
-        CursorLineNr = { fg = theme.ui.fg_bright, bg = theme.ui.bg_gutter },
+        CursorLineNr = { fg = theme.ui.fg_bright, bg = gutter },
         -- CursorLineFold	Like FoldColumn when 'cursorline' is set for the cursor line.
         -- CursorLineSign	Like SignColumn when 'cursorline' is set for the cursor line.
         -- MatchParen	Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
@@ -118,15 +122,16 @@ function M.setup(colors, config)
         -- SpellRare	Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
         SpellRare = { undercurl = config.undercurl, underline = not config.undercurl, sp = theme.diag.warning },
         -- StatusLine	Status line of current window.
-        StatusLine = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
+        StatusLine = { fg = theme.syn.special2, bg = theme.ui.bg_m5 },
         -- StatusLineNC	Status lines of not-current windows. Note: If this is equal to "StatusLine", Vim will use "^^^" in the status line of the current window.
-        StatusLineNC = { fg = theme.ui.nontext, bg = theme.ui.bg_m3 },
+        -- StatusLineNC = { fg = theme.ui.nontext, bg = theme.syn.deprecated },
+        StatusLineNC = { fg = theme.ui.nontext },
         -- TabLine		Tab pages line, not active tab page label.
-        TabLine = { bg = theme.ui.bg_m3, fg = theme.ui.special },
+        -- TabLine = { fg = theme.ui.special },
         -- TabLineFill	Tab pages line, where there are no labels.
-        TabLineFill = { bg = theme.ui.bg },
+        -- TabLineFill = { fg = theme.ui.fg },
         -- TabLineSel	Tab pages line, active tab page label.
-        TabLineSel = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
+        -- TabLineSel = { fg = theme.ui.fg_dim, bg = theme.ui.bg_p1 },
         -- Title		Titles for output from ":set all", ":autocmd" etc.
         Title = { fg = theme.syn.fun, bold = true },
         -- Visual		Visual mode selection.
