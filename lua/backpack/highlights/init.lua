@@ -1,4 +1,5 @@
 local M = {}
+local vim = vim
 
 ---@param highlights table
 ---@param termcolors table
