@@ -81,8 +81,8 @@ function M.setup(colors, config)
         --
         -- @keyword                keywords not fitting into specific categories
         -- @keyword.coroutine      keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
-        ["@keyword.coroutine.javascript"] = { fg = theme.syn.preproc, italic = true },
-        ["@keyword.coroutine.typescript"] = { fg = theme.syn.preproc, italic = true },
+        ["@keyword.coroutine.javascript"] = { fg = theme.syn.deprecated },
+        ["@keyword.coroutine.typescript"] = { fg = theme.syn.deprecated },
         -- @keyword.function       keywords that define a function (e.g. `func` in Go, `def` in Python)
         ["@keyword.function.javascript"] = { fg = theme.syn.deprecated },
         ["@keyword.function.typescript"] = { fg = theme.syn.deprecated },
