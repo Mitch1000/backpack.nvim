@@ -20,6 +20,8 @@ function M.setup(colors, config)
         -- @constant (Constant)              constant identifiers
         -- @constant.builtin       built-in constant values
         ["@constant.builtin"] = { fg = theme.syn.opkeyword, italic = true },
+        ["@constant.builtin.javascript"] = { fg = theme.syn.string },
+        ["@constant.builtin.typescript"] = { fg = theme.syn.string },
         -- @constant.macro         constants defined by the preprocessor
         --
         -- @module (Structure)      modules or namespaces
@@ -47,6 +49,8 @@ function M.setup(colors, config)
         --
         -- @type                   type or class definitions and annotations
         -- @type.builtin           built-in types
+        ["@type.builtin.javascript"] = { fg = theme.syn.preproc, italic = true },
+        ["@type.builtin.typescript"] = { fg = theme.syn.preproc, italic = true },
         -- @type.definition        identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
         --
         -- @attribute              attribute annotations (e.g. Python decorators, Rust lifetimes)
@@ -54,6 +58,8 @@ function M.setup(colors, config)
         -- @attribute.builtin      builtin annotations (e.g. `@property` in Python)
         -- @property               the key in key/value pairs
         --
+        ["@function.javascript"] = { fg = theme.syn.type },
+        ["@function.typescript"] = { fg = theme.syn.type },
         -- @function               function definitions
         -- @function.builtin       built-in functions
         -- @function.call          function calls
@@ -70,26 +76,40 @@ function M.setup(colors, config)
         ["@property.lua"] = { fg = theme.syn.identifier },
         -- @operator               symbolic operators (e.g. `+`, `*`)
         ["@operator"] = { link = "Operator" },
+        ["@keyword.operator.javascript"] = { fg = theme.syn.opkeyword },
+        ["@keyword.operator.typescript"] = { fg = theme.syn.opkeyword },
         --
         -- @keyword                keywords not fitting into specific categories
         -- @keyword.coroutine      keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
+        ["@keyword.coroutine.javascript"] = { fg = theme.syn.preproc, italic = true },
+        ["@keyword.coroutine.typescript"] = { fg = theme.syn.preproc, italic = true },
         -- @keyword.function       keywords that define a function (e.g. `func` in Go, `def` in Python)
+        ["@keyword.function.javascript"] = { fg = theme.syn.deprecated },
+        ["@keyword.function.typescript"] = { fg = theme.syn.deprecated },
         -- @keyword.operator       operators that are English words (e.g. `and`, `or`)
         ["@keyword.operator"] = { fg = theme.syn.operator, bold = true },
         -- @keyword.import         keywords for including modules (e.g. `import`, `from` in Python)
         ["@keyword.import"] = { link = "PreProc" },
+
+        ["@keyword.import.javascript"] = { fg = theme.syn.opkeyword, italic = true },
+        ["@keyword.import.typescript"] = { fg = theme.syn.opkeyword, italic = true },
+        ["@keyword.javascript"] = { fg = theme.syn.statement },
+        ["@keyword.typescript"] = { fg = theme.syn.statement },
+
         -- @keyword.type           keywords defining composite types (e.g. `struct`, `enum`)
         -- @keyword.modifier       keywords defining type modifiers (e.g. `const`, `static`, `public`)
         -- @keyword.repeat         keywords related to loops (e.g. `for`, `while`)
         -- @keyword.return         keywords like `return` and `yield`
         ["@keyword.return"] = vim.tbl_extend("force", { fg = theme.syn.identifier }, config.returnStyle),
+        ["@keyword.return.javascript"] = { fg = theme.syn.statement },
+        ["@keyword.return.typescript"] = { fg = theme.syn.statement },
         -- @keyword.debug          keywords related to debugging
         -- @keyword.exception      keywords related to exceptions (e.g. `throw`, `catch`)
         ["@keyword.exception"] = vim.tbl_extend("force", { fg = theme.syn.special3 }, config.statementStyle),
 
         ["@keyword.luap"] = { link = "@string.regex" },
         --
-        -- @keyword.conditional         keywords related to conditionals (e.g. `if`, `else`)
+        ["@keyword.conditional"] = { fg = theme.syn.statement },    --    keywords related to conditionals (e.g. `if`, `else`) 
         -- @keyword.conditional.ternary ternary operator (e.g. `?`, `:`)
         --
         -- @keyword.directive           various preprocessor directives and shebangs
