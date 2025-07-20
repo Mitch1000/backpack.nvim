@@ -6,7 +6,7 @@ A simple Retro theme.
 
 Feedback is appreciated!
 
-Typeface from screenshots below is [Monaco Nerd Font](https://github.com/Karmenzind/monaco-nerd-fonts)
+Typeface from screenshots below is [EnvyCodeR Nerd Font Mono](https://www.nerdfonts.com/font-downloads)
 
 <img width="1064" height="701" style= "width: 50%;" alt="Screenshot 2025-07-20 at 11 36 29 AM" src="https://github.com/user-attachments/assets/ddf703b9-c397-45b1-8a57-fa057feb13f0" />
 
