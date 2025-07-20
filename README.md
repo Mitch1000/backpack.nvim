@@ -16,6 +16,8 @@ Palette
 Dark mode
 -------------
 
+<img width="1728" height="1077" alt="colorscheme" src="https://github.com/user-attachments/assets/be19ea2f-83e2-42a7-b5cd-47122ead62db" />
+
 <img width="1781" alt="Screen Shot 2022-04-27 at 11 24 28 AM" src="https://user-images.githubusercontent.com/19654528/165554966-64e02997-4993-4024-868d-a3ba8c7d0d52.png">
 
 <img width="1777" alt="Screen Shot 2022-05-03 at 2 08 48 PM" src="https://user-images.githubusercontent.com/19654528/166515689-82583677-f347-456f-8d7b-7d6d675ded71.png">
