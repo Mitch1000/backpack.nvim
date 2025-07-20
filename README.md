@@ -1,7 +1,5 @@
 # Backpack - A Vim Color Scheme
 
-<img width="1064" height="701" alt="Screenshot 2025-07-20 at 11 36 29 AM" src="https://github.com/user-attachments/assets/ddf703b9-c397-45b1-8a57-fa057feb13f0" />
-
 Backpack is simple vim and neovim color scheme heavily inspired by [gruvbox](https://github.com/morhetz/gruvbox), and the Iterm2 color theme [Neutron](https://github.com/mbadolato/iTerm2-Color-Schemes)
 
 A simple Retro theme.
@@ -9,6 +7,8 @@ A simple Retro theme.
 Feedback is appreciated!
 
 Typeface from screenshots below is [Monaco Nerd Font](https://github.com/Karmenzind/monaco-nerd-fonts)
+
+<img width="1064" height="701" style= "width: 50%;" alt="Screenshot 2025-07-20 at 11 36 29 AM" src="https://github.com/user-attachments/assets/ddf703b9-c397-45b1-8a57-fa057feb13f0" />
 
 Palette
 -------------
