@@ -1,5 +1,7 @@
 # Backpack - A Vim Color Scheme
 
+<img width="1064" height="701" alt="Screenshot 2025-07-20 at 11 36 29 AM" src="https://github.com/user-attachments/assets/ddf703b9-c397-45b1-8a57-fa057feb13f0" />
+
 Backpack is simple vim and neovim color scheme heavily inspired by [gruvbox](https://github.com/morhetz/gruvbox), and the Iterm2 color theme [Neutron](https://github.com/mbadolato/iTerm2-Color-Schemes)
 
 A simple Retro theme.
@@ -15,8 +17,6 @@ Palette
 
 Dark mode
 -------------
-
-<img width="1728" height="1077" alt="colorscheme" src="https://github.com/user-attachments/assets/be19ea2f-83e2-42a7-b5cd-47122ead62db" />
 
 <img width="1781" alt="Screen Shot 2022-04-27 at 11 24 28 AM" src="https://user-images.githubusercontent.com/19654528/165554966-64e02997-4993-4024-868d-a3ba8c7d0d52.png">
 
