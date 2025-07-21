@@ -55,6 +55,7 @@
 ---@field bg_m4 ColorSpec
 ---@field bg_m5 ColorSpec
 ---@field bg_m6 ColorSpec
+---@field bg_m7 ColorSpec
 ---@field bg_m3 ColorSpec
 ---@field bg_m2 ColorSpec
 ---@field bg_m1 ColorSpec
@@ -106,6 +107,7 @@ return {
         bg_dim     = palette.dark0_hard,
         bg_gutter  = palette.background,
 
+        bg_m7      = palette.dark12,
         bg_m6      = palette.dark10,
         bg_m5      = palette.dark11,
         bg_m4      = palette.dark4,
