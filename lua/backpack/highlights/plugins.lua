@@ -455,6 +455,9 @@ function M.setup(colors, config)
         NeotestUnknown = { fg = theme.syn.deprecated },
         NeotestWatching = { fg = theme.vcs.changed },
         typescriptExport = { fg = theme.syn.opkeyword, italic = true },
+        typescriptFuncCallArg = { fg = theme.syn.constant },
+        typescriptIdentifierName = { fg = theme.syn.constant },
+        typescriptDestructureVariable = { fg = theme.ui.fg },
         typescriptTypeReference = { fg = theme.syn.type },
         typescriptMember = { fg = theme.ui.fg },
         typescriptPredefinedType = { fg = theme.syn.string },
@@ -475,7 +478,7 @@ function M.setup(colors, config)
         typescriptOperator = { fg = theme.syn.opkeyword },
         typescriptObjectLabel = { fg = theme.ui.fg },
 
-        htmlTag = { fg = theme.syn.deprecated },
+        htmlTag = { fg = theme.syn.punct },
         ALEErrorSign = { bg = theme.ui.bg_m1, fg = theme.syn.statement },
         ALEInfoSign = { bg = theme.ui.bg_m1, fg = theme.vcs.removed },
         ALEWarningSign = { bg = theme.ui.bg_m1, fg = theme.syn.statement },
