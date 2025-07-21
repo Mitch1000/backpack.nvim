@@ -1,4 +1,5 @@
 local M = {}
+local vim = vim
 
 ---@param colors BackpackColors
 ---@param config? BackpackConfig
@@ -11,6 +12,7 @@ function M.setup(colors, config)
         ["@variable"] = { fg = theme.ui.fg },
         -- @variable.builtin (Special)     built-in variable names (e.g. `this`, `self`)
         ["@variable.builtin"] = { fg = theme.syn.special2, italic = true },
+        ["@variable.builtin.ruby"] = { fg = theme.syn.constant },
         -- @variable.parameter             parameters of a function
         ["@variable.parameter"] = { fg = theme.syn.parameter },
         -- @variable.parameter.builtin     special parameters (e.g. `_`, `it`)
@@ -19,7 +21,7 @@ function M.setup(colors, config)
         --
         -- @constant (Constant)              constant identifiers
         -- @constant.builtin       built-in constant values
-        ["@constant.builtin"] = { fg = theme.syn.opkeyword, italic = true },
+        ["@constant.builtin"] = { fg = theme.syn.string, italic = true },
         ["@constant.builtin.javascript"] = { fg = theme.syn.string },
         ["@constant.builtin.typescript"] = { fg = theme.syn.string },
         -- @constant.macro         constants defined by the preprocessor
@@ -51,28 +53,35 @@ function M.setup(colors, config)
         -- @type.builtin           built-in types
         ["@type.builtin.javascript"] = { fg = theme.syn.preproc, italic = true },
         ["@type.builtin.typescript"] = { fg = theme.syn.preproc, italic = true },
+        ["@type.ruby"] = { fg = theme.syn.type },
         -- @type.definition        identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
         --
         -- @attribute              attribute annotations (e.g. Python decorators, Rust lifetimes)
         ["@attribute"] = { link = "Constant" },
+        ["@attribute.python"] = { fg = theme.ui.special },
         -- @attribute.builtin      builtin annotations (e.g. `@property` in Python)
         -- @property               the key in key/value pairs
         --
-        ["@function.javascript"] = { fg = theme.syn.type },
-        ["@function.typescript"] = { fg = theme.syn.type },
         -- @function               function definitions
         -- @function.builtin       built-in functions
+        ["@function.builtin.python"] = { fg = theme.syn.type },
         -- @function.call          function calls
         -- @function.macro         preprocessor macros
         --
         -- @function.method        method definitions
         -- @function.method.call   method calls
+        ["@function.javascript"] = { fg = theme.syn.type },
+        ["@function.typescript"] = { fg = theme.syn.type },
+        ["@function.ruby"] = { fg = theme.syn.deprecated },
+        ["@function.python"] = { fg = theme.syn.preproc },
+        ["@function.call.ruby"] = { fg = theme.ui.fg },
         --
         -- @constructor            constructor calls and definitions
         ["@constructor"] = { fg = theme.syn.special1 },
         ["@constructor.lua"] = { fg = theme.syn.keyword },
         ["@label.lua"] = { fg = theme.syn.keyword },
         ["@string.lua"] = { fg = theme.syn.string },
+        ["@string.special.symbol.ruby"] = { fg = theme.syn.string },
         ["@property.lua"] = { fg = theme.syn.identifier },
         -- @operator               symbolic operators (e.g. `+`, `*`)
         ["@operator"] = { link = "Operator" },
@@ -81,28 +90,38 @@ function M.setup(colors, config)
         --
         -- @keyword                keywords not fitting into specific categories
         -- @keyword.coroutine      keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
+        ["@keyword.coroutine"] = { fg = theme.syn.deprecated },
         ["@keyword.coroutine.javascript"] = { fg = theme.syn.deprecated },
         ["@keyword.coroutine.typescript"] = { fg = theme.syn.deprecated },
         -- @keyword.function       keywords that define a function (e.g. `func` in Go, `def` in Python)
+        ["@keyword.function"] = { fg = theme.syn.deprecated },
         ["@keyword.function.javascript"] = { fg = theme.syn.deprecated },
         ["@keyword.function.typescript"] = { fg = theme.syn.deprecated },
+        ["@keyword.function.lua"] = { fg = theme.ui.fg, bold = true },
+        ["@keyword.function.ruby"] = { fg = theme.syn.preproc },
+        ["@keyword.function.python"] = { fg = theme.syn.statement },
         -- @keyword.operator       operators that are English words (e.g. `and`, `or`)
         ["@keyword.operator"] = { fg = theme.syn.operator, bold = true },
         -- @keyword.import         keywords for including modules (e.g. `import`, `from` in Python)
         ["@keyword.import"] = { link = "PreProc" },
+        ["@keyword.import.python"] = { fg = theme.syn.deprecated },
 
-        ["@keyword.import.javascript"] = { fg = theme.syn.opkeyword, italic = true },
-        ["@keyword.import.typescript"] = { fg = theme.syn.opkeyword, italic = true },
+        ["@keyword.import.javascript"] = { fg = theme.syn.constant, italic = true },
+        ["@keyword.import.typescript"] = { fg = theme.syn.constant, italic = true },
         ["@keyword.javascript"] = { fg = theme.syn.statement },
         ["@keyword.typescript"] = { fg = theme.syn.statement },
+        ["@keyword.lua"] = { fg = theme.ui.fg, bold = true },
+        ["@keyword"] = { fg = theme.syn.statement },
 
         -- @keyword.type           keywords defining composite types (e.g. `struct`, `enum`)
         -- @keyword.modifier       keywords defining type modifiers (e.g. `const`, `static`, `public`)
+        ["@keyword.modifier.ruby"] = { fg = theme.syn.opkeyword },
         -- @keyword.repeat         keywords related to loops (e.g. `for`, `while`)
         -- @keyword.return         keywords like `return` and `yield`
-        ["@keyword.return"] = vim.tbl_extend("force", { fg = theme.syn.identifier }, config.returnStyle),
+        ["@keyword.return"] = vim.tbl_extend("force", { fg = theme.syn.statement }, config.returnStyle),
         ["@keyword.return.javascript"] = { fg = theme.syn.statement },
         ["@keyword.return.typescript"] = { fg = theme.syn.statement },
+        ["@keyword.return.lua"] = vim.tbl_extend("force", { fg = theme.ui.fg }, config.returnStyle),
         -- @keyword.debug          keywords related to debugging
         -- @keyword.exception      keywords related to exceptions (e.g. `throw`, `catch`)
         ["@keyword.exception"] = vim.tbl_extend("force", { fg = theme.syn.special3 }, config.statementStyle),
@@ -110,6 +129,7 @@ function M.setup(colors, config)
         ["@keyword.luap"] = { link = "@string.regex" },
         --
         ["@keyword.conditional"] = { fg = theme.syn.statement },    --    keywords related to conditionals (e.g. `if`, `else`) 
+        ["@keyword.conditional.lua"] = { fg = theme.ui.fg, bold = true },    --    keywords related to conditionals (e.g. `if`, `else`) 
         -- @keyword.conditional.ternary ternary operator (e.g. `?`, `:`)
         --
         -- @keyword.directive           various preprocessor directives and shebangs
@@ -183,6 +203,12 @@ function M.setup(colors, config)
         ["@tag.attribute"] = { fg = theme.syn.identifier },
         -- @tag.delimiter          XML-style tag delimiters
         ["@tag.delimiter"] = { fg = theme.syn.punct },
+        ["@tag.builtin.javascript"] = { fg = theme.syn.statement },
+        ["@tag.builtin.typescript"] = { fg = theme.syn.statement },
+        ["@tag.javascript"] = { fg = theme.syn.statement },
+        ["@tag.typescript"] = { fg = theme.syn.statement },
+        ["@tag.attribute.javascript"] = { fg = theme.syn.type },
+        ["@tag.attribute.typescript"] = { fg = theme.syn.type },
     }
 end
 
