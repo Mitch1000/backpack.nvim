@@ -19,7 +19,7 @@ M.config = {
     keywordStyle = { bold = true },
     tabSigns = false,
     statementStyle = { bold = false },
-    returnStyle = { italic = false, bold = true },
+    returnStyle = { italic = false, bold = false },
     typeStyle = {},
     transparent = false,
     dimInactive = false,
