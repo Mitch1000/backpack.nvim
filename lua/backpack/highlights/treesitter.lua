@@ -53,7 +53,10 @@ function M.setup(colors, config)
         -- @type.builtin           built-in types
         ["@type.builtin.javascript"] = { fg = theme.syn.preproc, italic = true },
         ["@type.builtin.typescript"] = { fg = theme.syn.preproc, italic = true },
+        ["@type.builtin.cpp"] = { fg = theme.syn.deprecated },
+
         ["@type.ruby"] = { fg = theme.syn.type },
+        ["@type.cpp"] = { fg = theme.syn.none },
         -- @type.definition        identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
         --
         -- @attribute              attribute annotations (e.g. Python decorators, Rust lifetimes)
@@ -74,6 +77,8 @@ function M.setup(colors, config)
         ["@function.typescript"] = { fg = theme.syn.type },
         ["@function.ruby"] = { fg = theme.syn.deprecated },
         ["@function.python"] = { fg = theme.syn.preproc },
+        ["@function.cpp"] = { fg = theme.syn.type },
+
         ["@function.call.ruby"] = { fg = theme.ui.fg },
         --
         -- @constructor            constructor calls and definitions
@@ -106,8 +111,8 @@ function M.setup(colors, config)
         ["@keyword.import"] = { link = "PreProc" },
         ["@keyword.import.python"] = { fg = theme.syn.deprecated },
 
-        ["@keyword.import.javascript"] = { fg = theme.syn.constant, italic = true },
-        ["@keyword.import.typescript"] = { fg = theme.syn.constant, italic = true },
+        ["@keyword.import.javascript"] = { fg = theme.syn.opkeyword },
+        ["@keyword.import.typescript"] = { fg = theme.syn.opkeyword },
         ["@keyword.javascript"] = { fg = theme.syn.statement },
         ["@keyword.typescript"] = { fg = theme.syn.statement },
         ["@keyword.lua"] = { fg = theme.ui.fg, bold = true },
@@ -125,6 +130,7 @@ function M.setup(colors, config)
         -- @keyword.debug          keywords related to debugging
         -- @keyword.exception      keywords related to exceptions (e.g. `throw`, `catch`)
         ["@keyword.exception"] = vim.tbl_extend("force", { fg = theme.syn.special3 }, config.statementStyle),
+        ["@keyword.exception.cpp"] = { fg = theme.syn.opkeyword },
 
         ["@keyword.luap"] = { link = "@string.regex" },
         --
@@ -200,15 +206,11 @@ function M.setup(colors, config)
         -- @tag                    XML-style tag names (e.g. in XML, HTML, etc.)
         -- @tag.builtin            XML-style tag names (e.g. HTML5 tags)
         -- @tag.attribute          XML-style tag attributes
-        ["@tag.attribute"] = { fg = theme.syn.identifier },
+        ["@tag.attribute"] = { fg = theme.syn.type },
         -- @tag.delimiter          XML-style tag delimiters
         ["@tag.delimiter"] = { fg = theme.syn.punct },
-        ["@tag.builtin.javascript"] = { fg = theme.syn.statement },
-        ["@tag.builtin.typescript"] = { fg = theme.syn.statement },
-        ["@tag.javascript"] = { fg = theme.syn.statement },
-        ["@tag.typescript"] = { fg = theme.syn.statement },
-        ["@tag.attribute.javascript"] = { fg = theme.syn.type },
-        ["@tag.attribute.typescript"] = { fg = theme.syn.type },
+        ["@tag.builtin"] = { fg = theme.syn.statement },
+        ["@tag"] = { fg = theme.syn.statement },
     }
 end
 
