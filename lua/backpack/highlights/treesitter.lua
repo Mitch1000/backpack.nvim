@@ -12,7 +12,7 @@ function M.setup(colors, config)
         ["@variable"] = { fg = theme.ui.fg },
         -- @variable.builtin (Special)     built-in variable names (e.g. `this`, `self`)
         ["@variable.builtin"] = { fg = theme.syn.special2, italic = true },
-        ["@variable.builtin.ruby"] = { fg = theme.syn.constant },
+        ["@variable.builtin.ruby"] = { fg = theme.syn.opkeyword },
         -- @variable.parameter             parameters of a function
         ["@variable.parameter"] = { fg = theme.syn.parameter },
         -- @variable.parameter.builtin     special parameters (e.g. `_`, `it`)
@@ -28,6 +28,7 @@ function M.setup(colors, config)
         --
         -- @module (Structure)      modules or namespaces
         -- @module.builtin         built-in modules or namespaces
+        ["@module.builtin.lua"] = { fg = theme.syn.operator },
         -- @label                  `GOTO` and other labels (e.g. `label:` in C), including heredoc labels
         --
         -- @string                 string literals
@@ -51,17 +52,17 @@ function M.setup(colors, config)
         --
         -- @type                   type or class definitions and annotations
          ["@type"] = { fg = theme.syn.type },
-         ["@type.java"] = { fg = theme.syn.type, italic = true },
         -- @type.builtin           built-in types
         ["@type.builtin.javascript"] = { fg = theme.syn.preproc, italic = true },
         ["@type.builtin.typescript"] = { fg = theme.syn.preproc, italic = true },
         ["@type.builtin.cpp"] = { fg = theme.syn.deprecated },
         -- ["@type.builtin.java"] = { fg = theme.syn.string, bold = true },
-        ["@type.builtin.java"] = { fg = theme.syn.type },
+        ["@type.builtin.java"] = { fg = theme.syn.deprecated, italic = true },
 
 
         ["@type.ruby"] = { fg = theme.syn.type },
         ["@type.cpp"] = { fg = theme.syn.none },
+        ["@type.java"] = { fg = theme.syn.constant, italic = true },
         -- @type.definition        identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
         --
         -- @attribute              attribute annotations (e.g. Python decorators, Rust lifetimes)
@@ -73,11 +74,12 @@ function M.setup(colors, config)
         -- @function               function definitions
         -- @function.builtin       built-in functions
         ["@function.builtin.python"] = { fg = theme.syn.type },
+        ["@function.builtin.lua"] = { fg = theme.syn.constant },
         -- @function.call          function calls
         -- @function.macro         preprocessor macros
         --
         -- @function.method        method definitions
-        ["@function.method.java"] = { fg = theme.syn.deprecated },
+        ["@function.method.java"] = { fg = theme.syn.type },
         -- @function.method.call   method calls
         ["@function.javascript"] = { fg = theme.syn.type },
         ["@function.typescript"] = { fg = theme.syn.type },
@@ -128,18 +130,19 @@ function M.setup(colors, config)
         ["@keyword.type.java"] = { fg = theme.syn.opkeyword },
         -- @keyword.modifier       keywords defining type modifiers (e.g. `const`, `static`, `public`)
         ["@keyword.modifier.ruby"] = { fg = theme.syn.opkeyword },
-        ["@keyword.modifier.java"] = { fg = theme.syn.constant },
+        ["@keyword.modifier.java"] = { fg = theme.syn.special4, italic = true },
         -- @keyword.repeat         keywords related to loops (e.g. `for`, `while`)
         -- @keyword.return         keywords like `return` and `yield`
         ["@keyword.return"] = vim.tbl_extend("force", { fg = theme.syn.statement }, config.returnStyle),
         ["@keyword.return.javascript"] = { fg = theme.syn.statement },
         ["@keyword.return.typescript"] = { fg = theme.syn.statement },
-        ["@keyword.return.lua"] = vim.tbl_extend("force", { fg = theme.ui.fg }, config.returnStyle),
+        ["@keyword.return.lua"] = { fg = theme.ui.fg, bold = true },
         -- @keyword.debug          keywords related to debugging
         -- @keyword.exception      keywords related to exceptions (e.g. `throw`, `catch`)
         ["@keyword.exception"] = vim.tbl_extend("force", { fg = theme.syn.special3 }, config.statementStyle),
         ["@keyword.exception.cpp"] = { fg = theme.syn.opkeyword },
         ["@keyword.exception.java"] = { fg = theme.syn.preproc },
+        ["@keyword.exception.ruby"] = { fg = theme.syn.opkeyword },
 
         ["@keyword.luap"] = { link = "@string.regex" },
         --
