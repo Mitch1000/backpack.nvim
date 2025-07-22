@@ -13,6 +13,7 @@ function M.setup(colors, config)
         -- @variable.builtin (Special)     built-in variable names (e.g. `this`, `self`)
         ["@variable.builtin"] = { fg = theme.syn.special2, italic = true },
         ["@variable.builtin.ruby"] = { fg = theme.syn.opkeyword },
+        ["@variable.builtin.javascript"] = { fg = theme.syn.deprecated },
         -- @variable.parameter             parameters of a function
         ["@variable.parameter"] = { fg = theme.syn.parameter },
         -- @variable.parameter.builtin     special parameters (e.g. `_`, `it`)
@@ -53,13 +54,16 @@ function M.setup(colors, config)
         -- @type                   type or class definitions and annotations
          ["@type"] = { fg = theme.syn.type },
         -- @type.builtin           built-in types
-        ["@type.builtin.javascript"] = { fg = theme.syn.preproc, italic = true },
-        ["@type.builtin.typescript"] = { fg = theme.syn.preproc, italic = true },
+        ["@type.builtin.javascript"] = { fg = theme.syn.preproc },
+        ["@type.builtin.tsx"] = { fg = theme.syn.string },
+        ["@type.builtin.typescript"] = { fg = theme.syn.string },
         ["@type.builtin.cpp"] = { fg = theme.syn.deprecated },
         -- ["@type.builtin.java"] = { fg = theme.syn.string, bold = true },
         ["@type.builtin.java"] = { fg = theme.syn.deprecated, italic = true },
 
 
+        ["@type.javascript"] = { fg = theme.syn.operator },
+        ["@type.tsx"] = { fg = theme.syn.operator },
         ["@type.ruby"] = { fg = theme.syn.type },
         ["@type.cpp"] = { fg = theme.syn.none },
         ["@type.java"] = { fg = theme.syn.constant, italic = true },
@@ -84,6 +88,7 @@ function M.setup(colors, config)
         ["@function.javascript"] = { fg = theme.syn.type },
         ["@function.typescript"] = { fg = theme.syn.type },
         ["@function.tsx"] = { fg = theme.syn.type },
+
         ["@function.ruby"] = { fg = theme.syn.deprecated },
         ["@function.python"] = { fg = theme.syn.preproc },
         ["@function.cpp"] = { fg = theme.syn.type },
