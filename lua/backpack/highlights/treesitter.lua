@@ -75,6 +75,7 @@ function M.setup(colors, config)
         -- @function.method.call   method calls
         ["@function.javascript"] = { fg = theme.syn.type },
         ["@function.typescript"] = { fg = theme.syn.type },
+        ["@function.tsx"] = { fg = theme.syn.type },
         ["@function.ruby"] = { fg = theme.syn.deprecated },
         ["@function.python"] = { fg = theme.syn.preproc },
         ["@function.cpp"] = { fg = theme.syn.type },
@@ -115,6 +116,7 @@ function M.setup(colors, config)
         ["@keyword.import.typescript"] = { fg = theme.syn.opkeyword },
         ["@keyword.javascript"] = { fg = theme.syn.statement },
         ["@keyword.typescript"] = { fg = theme.syn.statement },
+        ["@keyword.tsx"] = { fg = theme.syn.statement },
         ["@keyword.lua"] = { fg = theme.ui.fg, bold = true },
         ["@keyword"] = { fg = theme.syn.statement },
 
