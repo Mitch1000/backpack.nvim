@@ -47,6 +47,7 @@ function M.setup(colors, config)
         --  Define		preprocessor #define
         --  Macro		same as Define
         --  PreCondit	preprocessor #if, #else, #endif, etc.
+        PreProc = { fg = theme.syn.opkeyword },
 
         -- *Type		int, long, char, etc.
         -- Type = vim.tbl_extend("force", { fg = theme.syn.type }, config.typeStyle),
