@@ -50,10 +50,15 @@ function M.setup(colors, config)
         -- @number.float           floating-point number literals
         --
         -- @type                   type or class definitions and annotations
+         ["@type"] = { fg = theme.syn.type },
+         ["@type.java"] = { fg = theme.syn.type, italic = true },
         -- @type.builtin           built-in types
         ["@type.builtin.javascript"] = { fg = theme.syn.preproc, italic = true },
         ["@type.builtin.typescript"] = { fg = theme.syn.preproc, italic = true },
         ["@type.builtin.cpp"] = { fg = theme.syn.deprecated },
+        -- ["@type.builtin.java"] = { fg = theme.syn.string, bold = true },
+        ["@type.builtin.java"] = { fg = theme.syn.type },
+
 
         ["@type.ruby"] = { fg = theme.syn.type },
         ["@type.cpp"] = { fg = theme.syn.none },
@@ -72,6 +77,7 @@ function M.setup(colors, config)
         -- @function.macro         preprocessor macros
         --
         -- @function.method        method definitions
+        ["@function.method.java"] = { fg = theme.syn.deprecated },
         -- @function.method.call   method calls
         ["@function.javascript"] = { fg = theme.syn.type },
         ["@function.typescript"] = { fg = theme.syn.type },
@@ -91,8 +97,7 @@ function M.setup(colors, config)
         ["@property.lua"] = { fg = theme.syn.identifier },
         -- @operator               symbolic operators (e.g. `+`, `*`)
         ["@operator"] = { link = "Operator" },
-        ["@keyword.operator.javascript"] = { fg = theme.syn.opkeyword },
-        ["@keyword.operator.typescript"] = { fg = theme.syn.opkeyword },
+        ["@keyword.operator"] = { fg = theme.syn.opkeyword },
         --
         -- @keyword                keywords not fitting into specific categories
         -- @keyword.coroutine      keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
@@ -107,7 +112,6 @@ function M.setup(colors, config)
         ["@keyword.function.ruby"] = { fg = theme.syn.preproc },
         ["@keyword.function.python"] = { fg = theme.syn.statement },
         -- @keyword.operator       operators that are English words (e.g. `and`, `or`)
-        ["@keyword.operator"] = { fg = theme.syn.operator, bold = true },
         -- @keyword.import         keywords for including modules (e.g. `import`, `from` in Python)
         ["@keyword.import"] = { link = "PreProc" },
         ["@keyword.import.python"] = { fg = theme.syn.deprecated },
@@ -121,8 +125,10 @@ function M.setup(colors, config)
         ["@keyword"] = { fg = theme.syn.statement },
 
         -- @keyword.type           keywords defining composite types (e.g. `struct`, `enum`)
+        ["@keyword.type.java"] = { fg = theme.syn.opkeyword },
         -- @keyword.modifier       keywords defining type modifiers (e.g. `const`, `static`, `public`)
         ["@keyword.modifier.ruby"] = { fg = theme.syn.opkeyword },
+        ["@keyword.modifier.java"] = { fg = theme.syn.constant },
         -- @keyword.repeat         keywords related to loops (e.g. `for`, `while`)
         -- @keyword.return         keywords like `return` and `yield`
         ["@keyword.return"] = vim.tbl_extend("force", { fg = theme.syn.statement }, config.returnStyle),
@@ -133,6 +139,7 @@ function M.setup(colors, config)
         -- @keyword.exception      keywords related to exceptions (e.g. `throw`, `catch`)
         ["@keyword.exception"] = vim.tbl_extend("force", { fg = theme.syn.special3 }, config.statementStyle),
         ["@keyword.exception.cpp"] = { fg = theme.syn.opkeyword },
+        ["@keyword.exception.java"] = { fg = theme.syn.preproc },
 
         ["@keyword.luap"] = { link = "@string.regex" },
         --
