@@ -7,7 +7,7 @@ function M.setup(colors, config)
 
     local theme = colors.theme
     local bg = not config.transparent and theme.ui.bg or "NONE"
-    local tabSignsCurrent = not config.tabSigns and { bg = theme.ui.bg, fg = theme.ui.bg } or { bg = theme.ui.bg, fg = theme.ui.bg_m5 }
+    local tabSignsCurrent = not config.tabSigns and { bg = bg, fg = theme.ui.bg } or { bg = theme.ui.bg, fg = theme.ui.bg_m5 }
     local tabSigns = not config.tabSigns and { bg = theme.ui.bg, fg = theme.ui.bg } or { bg = theme.ui.bg_m5, fg = theme.ui.bg }
     return {
         -- Neovcs
@@ -485,12 +485,12 @@ function M.setup(colors, config)
         BufferAlternateIndex = { bg = theme.ui.bg_gutter, fg = theme.diag.info },
         BufferAlternateMod = { fg = theme.syn.special3 },
         BufferAlternateTarget = { bg = theme.ui.bg_gutter, fg = theme.ui.bg_gutter },
-        BufferCurrent = { bg = theme.ui.bg_gutter, fg = theme.syn.identifier },
+        BufferCurrent = { bg = bg, fg = theme.syn.identifier },
         BufferCurrentIndex = { bg = theme.ui.bg_gutter, fg = theme.diag.info },
         BufferCurrentMod = { bg = theme.ui.bg, fg = theme.syn.special3 },
-        -- BufferCurrentSign = { bg = theme.ui.bg, fg = theme.ui.bg },
         BufferCurrentSign = tabSignsCurrent,
         BufferCurrentTarget = { bg = theme.ui.bg_gutter, fg = theme.ui.bg_gutter },
+
         BufferInactiveIndex = { bg = theme.ui.bg_gutter, fg = theme.diag.info },
         BufferInactiveMod = { fg = theme.syn.special3, bg = theme.ui.bg_m5 },
         -- BufferInactiveSign = { bg = theme.ui.bg_m5, fg = theme.ui.bg_m5 },
