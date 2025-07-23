@@ -71,6 +71,10 @@ function M.setup(colors, config)
         ["@lsp.typemod.function.builtin"] = { link = "@function.builtin" },
         ["@lsp.typemod.function.defaultLibrary"] = { fg = theme.syn.operator },
         ["@lsp.typemod.method.defaultLibrary"] = { fg = theme.syn.operator },
+        ["@lsp.typemod.class.defaultLibrary.javascriptreact"] = { fg = theme.syn.preproc, italic = true },
+        ["@lsp.typemod.class.defaultLibrary.javascript"] = { fg = theme.syn.preproc, italic = true },
+        ["@lsp.typemod.class.defaultLibrary.typescriptreact"] = { fg = theme.syn.preproc, italic = true },
+        ["@lsp.typemod.class.defaultLibrary.typescript"] = { fg = theme.syn.preproc, italic = true },
 
         ["@lsp.typemod.variable.injected"] = { link = "@variable" },
 

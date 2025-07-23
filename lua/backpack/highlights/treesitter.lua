@@ -21,6 +21,7 @@ function M.setup(colors, config)
         ["@variable.member"] = { fg = theme.syn.identifier },
         --
         -- @constant (Constant)              constant identifiers
+        ["@constant.cpp"] = { fg = theme.syn.type },
         -- @constant.builtin       built-in constant values
         ["@constant.builtin"] = { fg = theme.syn.string, italic = true },
         ["@constant.builtin.javascript"] = { fg = theme.syn.string },
@@ -62,8 +63,8 @@ function M.setup(colors, config)
         ["@type.builtin.java"] = { fg = theme.syn.deprecated, italic = true },
 
 
-        ["@type.javascript"] = { fg = theme.syn.operator },
-        ["@type.tsx"] = { fg = theme.syn.operator },
+        ["@type.javascript"] = { fg = 'none' },
+        ["@type.tsx"] = { fg = 'none' },
         ["@type.ruby"] = { fg = theme.syn.type },
         ["@type.cpp"] = { fg = theme.syn.none },
         ["@type.java"] = { fg = theme.syn.constant, italic = true },
@@ -121,10 +122,31 @@ function M.setup(colors, config)
         -- @keyword.operator       operators that are English words (e.g. `and`, `or`)
         -- @keyword.import         keywords for including modules (e.g. `import`, `from` in Python)
         ["@keyword.import"] = { link = "PreProc" },
-        ["@keyword.import.python"] = { fg = theme.syn.deprecated },
-
+        ["@keyword.import.javascriptreact"] = { fg = theme.syn.opkeyword },
         ["@keyword.import.javascript"] = { fg = theme.syn.opkeyword },
         ["@keyword.import.typescript"] = { fg = theme.syn.opkeyword },
+        ["@keyword.import.typescriptreact"] = { fg = theme.syn.opkeyword },
+        ["@keyword.import.tsx"] = { fg = theme.syn.opkeyword },
+
+        ["@keyword.imprt"] = { fg = theme.syn.statement },
+
+        ["@keyword.exp.javascript"] = { fg = theme.syn.opkeyword, italic = true },
+        ["@keyword.exp.javascriptreact"] = { fg = theme.syn.opkeyword },
+        ["@keyword.default.javascript"] = { fg = theme.syn.constant, italic = true },
+        ["@keyword.from.javascript"] = { fg = theme.syn.preproc },
+        ["@keyword.from.javascriptreact"] = { fg = theme.syn.preproc },
+        ["@keyword.exp.typescript"] = { fg = theme.syn.opkeyword, italic = true },
+        ["@keyword.exp.typescriptreact"] = { fg = theme.syn.opkeyword },
+        ["@keyword.default.typescript"] = { fg = theme.syn.constant, italic = true },
+        ["@keyword.from.typescript"] = { fg = theme.syn.preproc },
+        ["@keyword.from.typescriptreact"] = { fg = theme.syn.preproc },
+        ["@keyword.exp.tsx"] = { fg = theme.syn.opkeyword, italic = true },
+        ["@keyword.default.tsx"] = { fg = theme.syn.constant, italic = true },
+        ["@keyword.from.tsx"] = { fg = theme.syn.preproc },
+
+        ["@keyword.import.python"] = { fg = theme.syn.deprecated },
+
+        -- ["@keyword.import.javascript"] = { fg = theme.syn.opkeyword },
         ["@keyword.javascript"] = { fg = theme.syn.statement },
         ["@keyword.typescript"] = { fg = theme.syn.statement },
         ["@keyword.tsx"] = { fg = theme.syn.statement },
