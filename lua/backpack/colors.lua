@@ -90,8 +90,11 @@ function M.setup(opts)
         error("backpack.colors.setup(): Unable to infer `theme`. Either specify a theme or call this function after ':colorscheme backpack'")
     end
 
-    -- Add to and/or override palette_colors
-    local updated_palette_colors = vim.tbl_extend("force", palette, override_colors.palette or {})
+  if theme == "light" then
+    palette.background = palette.light7
+  end
+
+  local updated_palette_colors = vim.tbl_extend("force", palette, override_colors.palette or {})
 
     -- Generate the theme according to the updated palette colors
     local theme_colors = require("backpack.themes")[theme](updated_palette_colors)

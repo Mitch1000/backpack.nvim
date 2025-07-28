@@ -236,7 +236,7 @@ return {
     local extra_dark_blue = palette.dark10
     local forest_blue = adjust_color_lightness(palette.forest_blue, 30)
     local green = adjust_color_lightness(palette.green, 20)
-    local background = palette.light7
+    local background = palette.background
     return {
       ui = {
         fg         = palette.dark1,
