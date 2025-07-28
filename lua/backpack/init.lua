@@ -7,6 +7,7 @@ local M = {}
 
 --- default config
 ---@class BackpackConfig
+local is_default_theme = true
 M.config = {
     undercurl = false,
     -- TODO: Remove vim_ setting values
@@ -45,6 +46,9 @@ end
 function M.setup(config)
     if check_config(config) then
         M.config = vim.tbl_deep_extend("force", M.config, config or {})
+        if config.theme ~= nil then
+          is_default_theme = false
+        end
     else
         vim.notify("Backpack: Errors found while loading user config. Using default config.", vim.log.levels.ERROR)
     end
@@ -55,7 +59,12 @@ end
 function M.load(theme)
     local utils = require("backpack.utils")
 
-    theme = theme or M.config.background[vim.o.background] or M.config.theme
+    theme = theme or M.config.theme or M.config.background[vim.o.background]
+    if is_default_theme then
+      theme = M.config.background[vim.o.background] or config.theme
+    end
+
+
     M._CURRENT_THEME = theme
 
     if vim.g.colors_name then
