@@ -1,1 +1,1 @@
-lua require("backpack").load "dark"
+lua require("backpack").load()

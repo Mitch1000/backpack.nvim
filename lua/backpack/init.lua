@@ -30,8 +30,8 @@ M.config = {
         return {}
     end,
     ---@type { dark: string, light: string }
-    background = { dark = "wave", light = "lotus" },
-    theme = "wave",
+    background = { dark = "dark", light = "light" },
+    theme = "dark",
     compile = false,
 }
 

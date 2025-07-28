@@ -31,7 +31,7 @@ local full_palette = {
   light4 = {'#d0d0d0', 252},
   light5 = {'#b2b2b2', 249},
   light6 = {'#949494', 246},
-  light7 = {'#dadada', 253},
+  light7 = {'#f4f4f4', 253},
   light8 = {'#c2c2c2', 251},
   light9 = {'#eeeeee', 255},
   light10 = {'#ffffff', 231},
@@ -70,7 +70,6 @@ local palette  = {}
 for k, v in pairs(full_palette) do
   palette[k] = v[1]
 end
-
 
 
 local M = {}
