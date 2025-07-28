@@ -1,6 +1,5 @@
 -- local c = require("backpack.color")
 local M = {}
-
 ---@param colors BackpackColors
 ---@param config? BackpackConfig
 function M.setup(colors, config)
@@ -48,7 +47,7 @@ function M.setup(colors, config)
         -- Folded		Line used for closed folds.
         Folded = { fg = theme.ui.special, bg = theme.ui.bg_m7, italic = true },
         -- FoldColumn	'foldcolumn'
-        FoldColumn = { fg = theme.ui.nontext, bg = theme.ui.bg_gutter },
+        FoldColumn = { fg = theme.ui.nontext, bg = theme.ui.bg_m7 },
         -- SignColumn	Column where |signs| are displayed.
         SignColumn = { fg = theme.ui.special, bg = gutter },
 
@@ -202,5 +201,4 @@ function M.setup(colors, config)
         -- diffIndexLine = { link = 'Identifier' },
     }
 end
-
 return M
