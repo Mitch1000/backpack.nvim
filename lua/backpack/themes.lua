@@ -247,7 +247,7 @@ return {
         bg_dim     = palette.light0_hard,
         bg_gutter  = background,
 
-        bg_m7      = palette.light12,
+        bg_m7      = palette.light9,
         bg_m6      = palette.light10,
         bg_m5      = palette.light11,
         bg_m4      = palette.light4,
