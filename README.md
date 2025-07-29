@@ -1,8 +1,8 @@
-# Backpack - A Vim Color Scheme
-
-Backpack is simple vim and neovim color scheme heavily inspired by [gruvbox](https://github.com/morhetz/gruvbox), and the Iterm2 color theme [Neutron](https://github.com/mbadolato/iTerm2-Color-Schemes)
+# Backpack - A Neovim Color Scheme
 
 A simple Retro theme.
+
+Backpack.nvim is a simple Neovim high-contrast colour scheme heavily inspired by [gruvbox](https://github.com/morhetz/gruvbox), and the Iterm2 color theme [Neutron](https://github.com/mbadolato/iTerm2-Color-Schemes)
 
 Feedback is appreciated!
 
