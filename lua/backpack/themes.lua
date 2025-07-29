@@ -96,17 +96,30 @@
 local function clamp(component)
   return math.min(math.max(component, 0), 255)
 end
-local function adjust_color_lightness(color, amt)
+function adjust_color_lightness(color, amt)
   if type(color) ~= 'string' then
     return
   end
   local col = string.gsub(color, "#", "0x")
   local num = tonumber(col, 16)
-  local r = math.floor(num / 0x10000) - amt
-  local g = (math.floor(num / 0x100) % 0x100) - amt
-  local b = (num % 0x100) - amt
-  local new_col = string.format("%#x", clamp(r) * 0x10000 + clamp(g) * 0x100 + clamp(b))
-  return string.gsub(new_col, "0x", "#")
+  local r = clamp(math.floor(num / 0x10000) - amt)
+  local g = clamp((math.floor(num / 0x100) % 0x100) - amt)
+  local b = clamp((num % 0x100) - amt)
+
+  local rs = string.format("%#x", r * 0x10000)
+  if rs == "0" then rs = "0x00" end
+  local gs = string.format("%#x", g * 0x100)
+  if gs == "0" then gs = "0x00" end
+  local bs = string.format("%#x", b)
+  if bs == "0" then bs = "0x00" end
+
+  local start = 3
+  local strend = 4
+  local red = string.sub(rs, start, strend)
+  local green = string.sub(gs, start, strend)
+  local blue = string.sub(bs, start, strend)
+
+  return [[#]] .. red .. green .. blue 
 end
 
 return {
@@ -235,7 +248,9 @@ return {
     local stain_yellow = adjust_color_lightness(palette.bright_purple, 30)
     local extra_dark_blue = palette.dark10
     local forest_blue = adjust_color_lightness(palette.forest_blue, 30)
-    local green = adjust_color_lightness(palette.green, 20)
+    local green = adjust_color_lightness(palette.green, 25)
+    local bright_neon_blue = adjust_color_lightness(palette.bright_neon_blue, 30)
+    local baby_blue = adjust_color_lightness(palette.baby_blue, 100)
     local background = palette.background
     return {
       ui = {
@@ -259,7 +274,7 @@ return {
         bg_p1      = palette.light4,
         bg_p2      = palette.light5,
 
-        special    = palette.baby_blue,
+        special    = baby_blue,
         nontext    = palette.light4,
         whitespace = palette.background,
         cursor     = palette.light8,
@@ -299,7 +314,7 @@ return {
           statement  = stain_yellow,
           keyword    = palette.dark1,
           operator   = palette.dark1,
-          preproc    = palette.bright_neon_blue,
+          preproc    = bright_neon_blue,
           opkeyword  = palette.bright_red,
           type       = green,
           regex      = bright_purple,
@@ -336,9 +351,9 @@ return {
           palette.dark_red, -- red
           green, -- green
           stain_yellow, -- yellow
-          palette.baby_blue, -- blue
+          baby_blue, -- blue
           bright_purple, -- magenta
-          palette.bright_neon_blue, -- cyan
+          bright_neon_blue, -- cyan
           palette.dark1, -- white
           palette.gray_244, -- bright black
           palette.bright_red, -- bright red
@@ -346,7 +361,7 @@ return {
           palette.terminal_blue, -- bright blue
           extra_dark_blue, -- dark blue
           palette.rose, -- bright magenta
-          palette.bright_neon_blue, -- bright cyan
+          bright_neon_blue, -- bright cyan
           palette.dark0, -- bright white
           palette.rose, -- extended color 1
           palette.light_stain_yellow, -- extended color 2
