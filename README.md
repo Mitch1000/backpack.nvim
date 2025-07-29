@@ -88,4 +88,4 @@ To use 256 colors use `vim.cmd([[ set notermguicolors ]])` after the color schem
 
 #### Thanks!!
 
-Thanks to 
+Thanks to [Kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim). Most of the code in this repo has been taken from there and repurposed.
