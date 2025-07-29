@@ -17,10 +17,11 @@ Palette
 
 Dark mode
 -------------
+<img width="990" height="566" alt="Screenshot 2025-07-28 at 8 16 19 PM" src="https://github.com/user-attachments/assets/fb2efd62-7bb2-4408-af66-90aaf5a46dd0" />
 
-<img width="1781" alt="Screen Shot 2022-04-27 at 11 24 28 AM" src="https://user-images.githubusercontent.com/19654528/165554966-64e02997-4993-4024-868d-a3ba8c7d0d52.png">
-
-<img width="1777" alt="Screen Shot 2022-05-03 at 2 08 48 PM" src="https://user-images.githubusercontent.com/19654528/166515689-82583677-f347-456f-8d7b-7d6d675ded71.png">
+Light mode
+-------------
+<img width="992" height="561" alt="Screenshot 2025-07-28 at 9 17 58 PM" src="https://github.com/user-attachments/assets/56c5bc9e-2802-4862-aabf-d90dae018479" />
 
 Installation Method
 -------------
