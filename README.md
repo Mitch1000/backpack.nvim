@@ -4,8 +4,6 @@ A simple Retro theme.
 
 Backpack.nvim is a simple Neovim high-contrast colour scheme heavily inspired by [gruvbox](https://github.com/morhetz/gruvbox), and the Iterm2 color theme [Neutron](https://github.com/mbadolato/iTerm2-Color-Schemes)
 
-Feedback is appreciated!
-
 Typeface from screenshots below is [EnvyCodeR Nerd Font Mono](https://www.nerdfonts.com/font-downloads)
 
 <img width="1064" height="701" style= "width: 70%;" alt="Screenshot 2025-07-20 at 11 36 29 AM" src="https://github.com/user-attachments/assets/ddf703b9-c397-45b1-8a57-fa057feb13f0" />
@@ -89,3 +87,5 @@ To use 256 colors use `vim.cmd([[ set notermguicolors ]])` after the color schem
 #### Thanks!!
 
 Thanks to [Kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim). Most of the code in this repo has been taken from there and repurposed.
+
+Feedback is appreciated!
