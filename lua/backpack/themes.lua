@@ -96,7 +96,8 @@
 local function clamp(component)
   return math.min(math.max(component, 0), 255)
 end
-function adjust_color_lightness(color, amt)
+
+local function adjust_color_lightness(color, amt)
   if type(color) ~= 'string' then
     return
   end
