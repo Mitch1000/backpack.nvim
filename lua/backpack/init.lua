@@ -1,13 +1,15 @@
 local M = {}
-
+local vim = vim
 ---@alias ColorSpec string RGB Hex string
 ---@alias ColorTable table<string, ColorSpec>
 ---@alias BackpackColorsSpec { palette: ColorTable, theme: ColorTable }
 ---@alias BackpackColors { palette: PaletteColors, theme: ThemeColors }
 
+local is_default_theme = true
+
 --- default config
 ---@class BackpackConfig
-local is_default_theme = true
+---
 M.config = {
     undercurl = false,
     -- TODO: Remove vim_ setting values
