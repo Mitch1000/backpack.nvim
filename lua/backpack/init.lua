@@ -10,7 +10,7 @@ local is_default_theme = true
 --- default config
 ---@class BackpackConfig
 ---
-M.config = {
+local default_config = {
     undercurl = false,
     -- TODO: Remove vim_ setting values
     vim_italic = true,
@@ -40,19 +40,32 @@ M.config = {
 
 local function check_config(config)
     local err
-    return not err
+    for k in pairs(config) do
+      if default_config[k] ~= nil then
+        local default_type = type(default_config[k])
+        local v = config[k]
+        if type(v) ~= default_type then
+          err = [[Config value: "]] .. tostring(k) .. [[" must be of type: "]] .. default_type .. [[".]]
+          return err
+        end
+      end
+    end
+    return err
 end
 
 --- update global configuration with user settings
 ---@param config? BackpackConfig user configuration
 function M.setup(config)
-    if check_config(config) then
-        M.config = vim.tbl_deep_extend("force", M.config, config or {})
+    if type(config) ~= 'table' then return end
+
+    local error = check_config(config)
+    if not error then
+        default_config = vim.tbl_deep_extend("force", default_config, config or {})
         if config.theme ~= nil then
           is_default_theme = false
         end
     else
-        vim.notify("Backpack: Errors found while loading user config. Using default config.", vim.log.levels.ERROR)
+        vim.notify("Backpack: Errors found while loading user config. Using default config. " .. error, vim.log.levels.ERROR)
     end
 end
 
@@ -61,11 +74,10 @@ end
 function M.load(theme)
     local utils = require("backpack.utils")
 
-    theme = theme or M.config.theme or M.config.background[vim.o.background]
+    theme = theme or default_config.theme or default_config.background[vim.o.background]
     if is_default_theme then
-      theme = M.config.background[vim.o.background] or config.theme
+      theme = default_config.background[vim.o.background] or config.theme
     end
-
 
     M._CURRENT_THEME = theme
 
@@ -76,7 +88,7 @@ function M.load(theme)
     vim.g.colors_name = "backpack"
     vim.o.termguicolors = true
 
-    if M.config.compile then
+    if default_config.compile then
         if utils.load_compiled(theme) then
             return
         end
@@ -84,17 +96,17 @@ function M.load(theme)
         M.compile()
         utils.load_compiled(theme)
     else
-        local colors = require("backpack.colors").setup({ theme = theme, colors = M.config.colors })
-        local highlights = require("backpack.highlights").setup(colors, M.config)
-        require("backpack.highlights").highlight(highlights, M.config.terminalColors and colors.theme.term or {})
+        local colors = require("backpack.colors").setup({ theme = theme, colors = default_config.colors })
+        local highlights = require("backpack.highlights").setup(colors, default_config)
+        require("backpack.highlights").highlight(highlights, default_config.terminalColors and colors.theme.term or {})
     end
 end
 
 function M.compile()
     for theme, _ in pairs(require("backpack.themes")) do
-        local colors = require("backpack.colors").setup({ theme = theme, colors = M.config.colors })
-        local highlights = require("backpack.highlights").setup(colors, M.config)
-        require("backpack.utils").compile(theme, highlights, M.config.terminalColors and colors.theme.term or {})
+        local colors = require("backpack.colors").setup({ theme = theme, colors = default_config.colors })
+        local highlights = require("backpack.highlights").setup(colors, default_config)
+        require("backpack.utils").compile(theme, highlights, default_config.terminalColors and colors.theme.term or {})
     end
 end
 
@@ -109,5 +121,7 @@ vim.api.nvim_create_user_command("BackpackCompile", function()
     M.load(M._CURRENT_THEME)
     vim.api.nvim_exec_autocmds("ColorScheme", { modeline = false })
 end, {})
+
+M.config = default_config
 
 return M
