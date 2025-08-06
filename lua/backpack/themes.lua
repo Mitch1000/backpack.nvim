@@ -139,7 +139,7 @@ return {
 
         bg_m7      = palette.dark12,
         bg_m6      = palette.dark10,
-        bg_m5      = palette.dark11,
+        bg_m5      = palette.dark7,
         bg_m4      = palette.dark4,
         bg_m3      = palette.dark3,
         bg_m2      = palette.dark2,
