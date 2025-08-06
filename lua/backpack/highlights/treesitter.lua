@@ -156,7 +156,7 @@ function M.setup(colors, config)
         ["@keyword"] = { fg = theme.syn.statement },
 
         -- @keyword.type           keywords defining composite types (e.g. `struct`, `enum`)
-        ["@keyword.type.java"] = { fg = theme.syn.opkeyword },
+        ["@keyword.type.java"] = { fg = theme.syn.type },
         -- @keyword.modifier       keywords defining type modifiers (e.g. `const`, `static`, `public`)
         ["@keyword.modifier.ruby"] = { fg = theme.syn.opkeyword },
         ["@keyword.modifier.java"] = { fg = theme.syn.special4, italic = true },
