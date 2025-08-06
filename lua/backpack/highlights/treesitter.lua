@@ -66,7 +66,7 @@ function M.setup(colors, config)
         ["@type.javascript"] = { fg = 'none' },
         ["@type.tsx"] = { fg = 'none' },
         ["@type.ruby"] = { fg = theme.syn.type },
-        ["@type.cpp"] = { fg = theme.syn.none },
+        ["@type.cpp"] = { fg = theme.syn.constant },
         ["@type.java"] = { fg = theme.syn.constant, italic = true },
         -- @type.definition        identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
         --
