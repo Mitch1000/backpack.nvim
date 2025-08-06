@@ -128,24 +128,26 @@ function M.setup(colors, config)
         ["@keyword.import.typescriptreact"] = { fg = theme.syn.opkeyword },
         ["@keyword.import.tsx"] = { fg = theme.syn.opkeyword },
 
-        ["@keyword.imprt"] = { fg = theme.syn.statement },
 
-        ["@keyword.exp.javascript"] = { fg = theme.syn.opkeyword, italic = true },
-        ["@keyword.exp.javascriptreact"] = { fg = theme.syn.opkeyword },
-        ["@keyword.default.javascript"] = { fg = theme.syn.constant, italic = true },
-        ["@keyword.from.javascript"] = { fg = theme.syn.preproc },
-        ["@keyword.from.javascriptreact"] = { fg = theme.syn.preproc },
-        ["@keyword.exp.typescript"] = { fg = theme.syn.opkeyword, italic = true },
-        ["@keyword.exp.typescriptreact"] = { fg = theme.syn.opkeyword },
-        ["@keyword.default.typescript"] = { fg = theme.syn.constant, italic = true },
-        ["@keyword.from.typescript"] = { fg = theme.syn.preproc },
-        ["@keyword.from.typescriptreact"] = { fg = theme.syn.preproc },
-        ["@keyword.exp.tsx"] = { fg = theme.syn.opkeyword, italic = true },
-        ["@keyword.default.tsx"] = { fg = theme.syn.constant, italic = true },
-        ["@keyword.from.tsx"] = { fg = theme.syn.preproc },
+        -- Custom highlight groups created by me
+        ["@backpack.import"] = { fg = theme.syn.statement },
+        ["@backpack.exp.javascript"] = { fg = theme.syn.opkeyword, italic = true },
+        ["@backpack.exp.javascriptreact"] = { fg = theme.syn.opkeyword },
+        ["@backpack.default.javascript"] = { fg = theme.syn.constant, italic = true },
+        ["@backpack.from.javascript"] = { fg = theme.syn.preproc },
+        ["@backpack.from.javascriptreact"] = { fg = theme.syn.preproc },
+        ["@backpack.exp.typescript"] = { fg = theme.syn.opkeyword, italic = true },
+        ["@backpack.exp.typescriptreact"] = { fg = theme.syn.opkeyword },
+        ["@backpack.default.typescript"] = { fg = theme.syn.constant, italic = true },
+        ["@backpack.from.typescript"] = { fg = theme.syn.preproc },
+        ["@backpack.from.typescriptreact"] = { fg = theme.syn.preproc },
+        ["@backpack.exp.tsx"] = { fg = theme.syn.opkeyword, italic = true },
+        ["@backpack.default.tsx"] = { fg = theme.syn.constant, italic = true },
+        ["@backpack.from.tsx"] = { fg = theme.syn.preproc },
+        -- End custom highlight groups
+
 
         ["@keyword.import.python"] = { fg = theme.syn.deprecated },
-
         -- ["@keyword.import.javascript"] = { fg = theme.syn.opkeyword },
         ["@keyword.javascript"] = { fg = theme.syn.statement },
         ["@keyword.typescript"] = { fg = theme.syn.statement },
