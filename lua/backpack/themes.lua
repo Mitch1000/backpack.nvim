@@ -265,7 +265,7 @@ return {
 
         bg_m7      = palette.light9,
         bg_m6      = palette.light10,
-        bg_m5      = palette.light11,
+        bg_m5      = palette.light9,
         bg_m4      = palette.light4,
         bg_m3      = palette.light3,
         bg_m2      = palette.light2,
