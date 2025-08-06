@@ -12,7 +12,7 @@ function M.setup(colors, config)
         ["@variable"] = { fg = theme.ui.fg },
         -- @variable.builtin (Special)     built-in variable names (e.g. `this`, `self`)
         ["@variable.builtin"] = { fg = theme.syn.special2, italic = true },
-        ["@variable.builtin.ruby"] = { fg = theme.syn.opkeyword },
+        ["@variable.builtin.ruby"] = { fg = theme.syn.string },
         ["@variable.builtin.javascript"] = { fg = theme.syn.deprecated },
         -- @variable.parameter             parameters of a function
         ["@variable.parameter"] = { fg = theme.syn.parameter },
