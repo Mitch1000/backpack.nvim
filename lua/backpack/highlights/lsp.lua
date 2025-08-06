@@ -14,6 +14,7 @@ function M.setup(colors, config)
         -- ["@lsp.type.function"] = { link = "Function" },
         ["@lsp.type.function.typescriptreact"] = { fg = 'none' },
         ["@lsp.type.function.javascriptreact"] = { fg = 'none' },
+        ["@lsp.type.function.cpp"] = { fg = theme.syn.type },
         -- ["@lsp.type.interface"] = { link = "Structure" },
         ["@lsp.type.macro"] = { link = "Macro" },
         ["@lsp.type.method"] = { link = "@function.method" },       -- Function
