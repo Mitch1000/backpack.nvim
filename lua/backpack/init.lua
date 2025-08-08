@@ -13,10 +13,6 @@ local is_default_theme = true
 local default_config = {
     undercurl = false,
     -- TODO: Remove vim_ setting values
-    vim_italic = true,
-    vim_bold = true,
-    vim_underline = true,
-    vim_inverse = true,
     commentStyle = { italic = true },
     functionStyle = {},
     keywordStyle = { bold = true },
