@@ -32,11 +32,12 @@ local default_config = {
     overrides = function()
         return {}
     end,
-    ---@type { dark: string, light: string }
-    background = { dark = "dark", light = "light" },
     theme = "dark",
+    contrast = "medium",
     compile = false,
 }
+
+local current_config = default_config
 
 local function check_config(config)
     local err
@@ -60,7 +61,7 @@ function M.setup(config)
 
     local error = check_config(config)
     if not error then
-        default_config = vim.tbl_deep_extend("force", default_config, config or {})
+        current_config = vim.tbl_deep_extend("force", default_config, config or {})
         if config.theme ~= nil then
           is_default_theme = false
         end
@@ -74,9 +75,9 @@ end
 function M.load(theme)
     local utils = require("backpack.utils")
 
-    theme = theme or default_config.theme or default_config.background[vim.o.background]
+    theme = theme or current_config.theme or vim.o.background
     if is_default_theme then
-      theme = default_config.background[vim.o.background] or config.theme
+      theme = vim.o.background or current_config.theme
     end
 
     M._CURRENT_THEME = theme
@@ -88,7 +89,7 @@ function M.load(theme)
     vim.g.colors_name = "backpack"
     vim.o.termguicolors = true
 
-    if default_config.compile then
+    if current_config.compile then
         if utils.load_compiled(theme) then
             return
         end
@@ -96,17 +97,25 @@ function M.load(theme)
         M.compile()
         utils.load_compiled(theme)
     else
-        local colors = require("backpack.colors").setup({ theme = theme, colors = default_config.colors })
-        local highlights = require("backpack.highlights").setup(colors, default_config)
-        require("backpack.highlights").highlight(highlights, default_config.terminalColors and colors.theme.term or {})
+        local colors = require("backpack.colors").setup({
+          theme = theme,
+          colors = current_config.colors,
+          contrast = current_config.contrast,
+        })
+        local highlights = require("backpack.highlights").setup(colors, current_config)
+        require("backpack.highlights").highlight(highlights, current_config.terminalColors and colors.theme.term or {})
     end
 end
 
 function M.compile()
     for theme, _ in pairs(require("backpack.themes")) do
-        local colors = require("backpack.colors").setup({ theme = theme, colors = default_config.colors })
-        local highlights = require("backpack.highlights").setup(colors, default_config)
-        require("backpack.utils").compile(theme, highlights, default_config.terminalColors and colors.theme.term or {})
+        local colors = require("backpack.colors").setup({
+          theme = theme,
+          colors = current_config.colors,
+          contrast = current_config.contrast,
+        })
+        local highlights = require("backpack.highlights").setup(colors, current_config)
+        require("backpack.utils").compile(theme, highlights, current_config.terminalColors and colors.theme.term or {})
     end
 end
 
@@ -122,6 +131,6 @@ vim.api.nvim_create_user_command("BackpackCompile", function()
     vim.api.nvim_exec_autocmds("ColorScheme", { modeline = false })
 end, {})
 
-M.config = default_config
+M.config = current_config
 
 return M

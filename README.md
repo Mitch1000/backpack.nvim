@@ -71,7 +71,7 @@ There is an option to disable P3 colors in the Advanced Settings tab.
       dimInactive = false,
       terminalColors = true,
       colors = { theme = { dark = {}, light = {} }, palette = {} },
-      background = { dark = "dark", light = "light" },
+      contrast = "medium", -- medium, high, extreme
       overrides = function()
           return {}
       end,

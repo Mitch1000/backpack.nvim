@@ -11,7 +11,7 @@ local full_palette = {
   dark3 = {'#5f5f5f', 241},
   dark4 = {'#757575', 243},
   dark5 = {'#444444', 238},
-  dark6 = {'#6f6f6f', 241},
+  dark6 = {'#1e1e1e', 234},
   dark7 = {'#181818', 234},
   dark8 = {'#303030', 236},
   dark9 = {'#212121', 235},
@@ -30,7 +30,7 @@ local full_palette = {
   light3 = {'#dadada', 253},
   light4 = {'#d0d0d0', 252},
   light5 = {'#b2b2b2', 249},
-  light6 = {'#949494', 246},
+  light6 = {'#fcfcfc', 246},
   light7 = {'#fafafa', 253},
   light8 = {'#c2c2c2', 251},
   light9 = {'#eeeeee', 255},
@@ -71,6 +71,14 @@ for k, v in pairs(full_palette) do
   palette[k] = v[1]
 end
 
+local function get_background(theme, contrast)
+  local theme_contrast_values = {
+    dark = { high = palette.dark6, extreme = palette.dark11, medium = palette.background },
+    light = { high = palette.light6, extreme = palette.light10, medium = palette.light7 }
+  }
+
+  return theme_contrast_values[theme][contrast] or theme_contrast_values[theme]["medium"]
+end
 
 local M = {}
 --- Generate colors table:
@@ -90,12 +98,9 @@ function M.setup(opts)
         error("backpack.colors.setup(): Unable to infer `theme`. Either specify a theme or call this function after ':colorscheme backpack'")
     end
 
-  if theme == "light" then
-    palette.background = palette.light7
-  end
+    palette.background = get_background(theme, opts.contrast)
 
   local updated_palette_colors = vim.tbl_extend("force", palette, override_colors.palette or {})
-
     -- Generate the theme according to the updated palette colors
     local theme_colors = require("backpack.themes")[theme](updated_palette_colors)
 
