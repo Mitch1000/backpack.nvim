@@ -93,36 +93,6 @@
 ---@field ui UiElements
 ---@field term ColorSpec[]
 
-local function clamp(component)
-  return math.min(math.max(component, 0), 255)
-end
-
-local function adjust_color_lightness(color, amt)
-  if type(color) ~= 'string' then
-    return
-  end
-  local col = string.gsub(color, "#", "0x")
-  local num = tonumber(col, 16)
-  local r = clamp(math.floor(num / 0x10000) - amt)
-  local g = clamp((math.floor(num / 0x100) % 0x100) - amt)
-  local b = clamp((num % 0x100) - amt)
-
-  local rs = string.format("%#x", r * 0x10000)
-  if rs == "0" then rs = "0x00" end
-  local gs = string.format("%#x", g * 0x100)
-  if gs == "0" then gs = "0x00" end
-  local bs = string.format("%#x", b)
-  if bs == "0" then bs = "0x00" end
-
-  local start = 3
-  local strend = 4
-  local red = string.sub(rs, start, strend)
-  local green = string.sub(gs, start, strend)
-  local blue = string.sub(bs, start, strend)
-
-  return [[#]] .. red .. green .. blue 
-end
-
 return {
   ---@param palette PaletteColors
   ---@return ThemeColors
@@ -245,23 +215,15 @@ return {
   end,
 
   light = function(palette)
-    local bright_purple = adjust_color_lightness(palette.bright_purple, 50)
-    local stain_yellow = adjust_color_lightness(palette.bright_purple, 30)
-    local extra_dark_blue = palette.dark10
-    local forest_blue = adjust_color_lightness(palette.forest_blue, 30)
-    local green = adjust_color_lightness(palette.green, 25)
-    local bright_neon_blue = adjust_color_lightness(palette.bright_neon_blue, 30)
-    local baby_blue = adjust_color_lightness(palette.baby_blue, 100)
-    local background = palette.background
     return {
       ui = {
         fg         = palette.dark1,
         fg_dim     = palette.dark2,
         fg_bright  = palette.dark4,
-        fg_reverse = extra_dark_blue,
+        fg_reverse = palette.extra_dark_blue,
 
         bg_dim     = palette.light0_hard,
-        bg_gutter  = background,
+        bg_gutter  = palette.background,
 
         bg_m7      = palette.light9,
         bg_m6      = palette.light10,
@@ -271,11 +233,11 @@ return {
         bg_m2      = palette.light2,
         bg_m1      = palette.light1,
         fg_m1      = palette.dark4,
-        bg         = background,
+        bg         = palette.background,
         bg_p1      = palette.light4,
         bg_p2      = palette.light5,
 
-        special    = baby_blue,
+        special    = palette.baby_blue,
         nontext    = palette.light4,
         whitespace = palette.background,
         cursor     = palette.light8,
@@ -286,23 +248,23 @@ return {
         pmenu = {
           fg       = palette.dark1,
           fg_sel   = "none", -- This is important to make highdarks pass-through
-          bg       = background,
-          bg_sel   = forest_blue,
+          bg       = palette.background,
+          bg_sel   = palette.forest_blue,
           bg_sbar  = palette.light2,
           bg_thumb = palette.light4,
         },
         float      = {
-            fg        = bright_purple,
-            bg        = background,
+            fg        = palette.bright_purple,
+            bg        = palette.background,
             fg_border = palette.dark1,
             bg_border = palette.background,
         },
       },
       syn = {
-          string     = bright_purple,
+          string     = palette.bright_purple,
           variable   = "none",
-          number     = bright_purple,
-          constant   = extra_dark_blue,
+          number     = palette.bright_purple,
+          constant   = palette.extra_dark_blue,
           identifier = palette.dark2,
           -- parameter  = "#C3B1B1",
           -- parameter  = "#B1ADC8",
@@ -311,15 +273,15 @@ return {
           -- parameter = "#d5a4a6",
           -- parameter  = "#C8ADAD",
           -- parameter  = "#d7a8a8",
-          fun        = extra_dark_blue,
-          statement  = stain_yellow,
+          fun        = palette.extra_dark_blue,
+          statement  = palette.stain_yellow,
           keyword    = palette.dark1,
           operator   = palette.dark1,
-          preproc    = bright_neon_blue,
+          preproc    = palette.bright_neon_blue,
           opkeyword  = palette.bright_red,
-          type       = green,
-          regex      = bright_purple,
-          deprecated = forest_blue,
+          type       = palette.green,
+          regex      = palette.bright_purple,
+          deprecated = palette.forest_blue,
           null       = palette.dark_red,
           none       = palette.terminal_blue,
           comment    = palette.gray_244,
@@ -330,39 +292,39 @@ return {
           special4   = palette.dark8,
       },
       vcs = {
-          added   = green,
-          removed = forest_blue,
+          added   = palette.green,
+          removed = palette.forest_blue,
           changed = palette.bright_red,
       },
       diff = {
-          add    = green,
+          add    = palette.green,
           delete = palette.dark_red,
-          change = forest_blue,
+          change = palette.forest_blue,
           text   = palette.dark1,
       },
       diag = {
-          ok      = green,
+          ok      = palette.green,
           error   = palette.dark_red,
-          warning = stain_yellow,
+          warning = palette.stain_yellow,
           info    = palette.dark3,
           hint    = palette.terminal_blue,
       },
       term = {
           palette.light0_harder, -- black
           palette.dark_red, -- red
-          green, -- green
-          stain_yellow, -- yellow
-          baby_blue, -- blue
-          bright_purple, -- magenta
-          bright_neon_blue, -- cyan
+          palette.green, -- green
+          palette.stain_yellow, -- yellow
+          palette.baby_blue, -- blue
+          palette.bright_purple, -- magenta
+          palette.bright_neon_blue, -- cyan
           palette.dark1, -- white
           palette.gray_244, -- bright black
           palette.bright_red, -- bright red
           palette.terminal_green, -- bright green
           palette.terminal_blue, -- bright blue
-          extra_dark_blue, -- dark blue
+          palette.extra_dark_blue, -- dark blue
           palette.rose, -- bright magenta
-          bright_neon_blue, -- bright cyan
+          palette.bright_neon_blue, -- bright cyan
           palette.dark0, -- bright white
           palette.rose, -- extended color 1
           palette.light_stain_yellow, -- extended color 2

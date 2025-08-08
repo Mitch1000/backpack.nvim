@@ -1,3 +1,4 @@
+local vim = vim
 ---@class PaletteColors
 local full_palette = {
   background = {'#222222', 235},
@@ -74,20 +75,71 @@ end
 local function get_background(theme, contrast)
   local theme_contrast_values = {
     dark = { high = palette.dark6, extreme = palette.dark11, medium = palette.background },
-    light = { high = palette.light6, extreme = palette.light10, medium = palette.light7 }
+    light = { high = palette.light10, extreme = palette.light10, medium = palette.light6 }
   }
 
   return theme_contrast_values[theme][contrast] or theme_contrast_values[theme]["medium"]
 end
 
 local M = {}
+
+--- Clamp
+--- @param component number
+--- @return number
+local function clamp(component)
+  return math.min(math.max(component, 0), 255)
+end
+
+--- Adjust color lightness
+--- @param color string
+--- @param amt number
+--- @return string
+local function adjust_color_lightness(color, amt)
+  if type(color) ~= 'string' then
+    return color
+  end
+  local col = string.gsub(color, "#", "0x")
+  local num = tonumber(col, 16)
+  local r = clamp(math.floor(num / 0x10000) - amt)
+  local g = clamp((math.floor(num / 0x100) % 0x100) - amt)
+  local b = clamp((num % 0x100) - amt)
+
+  local rs = string.format("%#x", r * 0x10000)
+  if rs == "0" then rs = "0x00" end
+  local gs = string.format("%#x", g * 0x100)
+  if gs == "0" then gs = "0x00" end
+  local bs = string.format("%#x", b)
+  if bs == "0" then bs = "0x00" end
+
+  local start = 3
+  local strend = 4
+  local red = string.sub(rs, start, strend)
+  local green = string.sub(gs, start, strend)
+  local blue = string.sub(bs, start, strend)
+
+  return [[#]] .. red .. green .. blue
+end
+
+--- Darken Light Theme Colors:
+--- For darkening light theme colors to improve contrast
+--- @param color_modifier number
+local function darken_lighttheme_colors(color_modifier)
+    palette.bright_purple = adjust_color_lightness(palette.bright_purple, 50 * color_modifier)
+    palette.stain_yellow = adjust_color_lightness(palette.bright_purple, 30 * color_modifier)
+    palette.extra_dark_blue = palette.dark10
+    palette.forest_blue = adjust_color_lightness(palette.forest_blue, 30 * color_modifier)
+    palette.green = adjust_color_lightness(palette.green, 25 * color_modifier)
+    palette.bright_neon_blue = adjust_color_lightness(palette.bright_neon_blue, 30 * color_modifier)
+    palette.baby_blue = adjust_color_lightness(palette.baby_blue, 100 * color_modifier)
+end
+
 --- Generate colors table:
 --- * opts:
 ---   - colors: Table of personalized colors and/or overrides of existing ones.
 ---     Defaults to BackpackConfig.colors.
 ---   - theme: Use selected theme. Defaults to BackpackConfig.theme
 ---     according to the value of 'background' option.
----@param opts? { colors?: table, theme?: string }
+---@param opts? { colors?: table, theme?: string, contrast?: string }
 ---@return { theme: ThemeColors, palette: PaletteColors}
 function M.setup(opts)
     opts = opts or {}
@@ -98,9 +150,14 @@ function M.setup(opts)
         error("backpack.colors.setup(): Unable to infer `theme`. Either specify a theme or call this function after ':colorscheme backpack'")
     end
 
+    if theme == "light" then
+      local mod = opts.contrast == "extreme" and 1.5 or 1
+      darken_lighttheme_colors(mod)
+    end
+
     palette.background = get_background(theme, opts.contrast)
 
-  local updated_palette_colors = vim.tbl_extend("force", palette, override_colors.palette or {})
+    local updated_palette_colors = vim.tbl_extend("force", palette, override_colors.palette or {})
     -- Generate the theme according to the updated palette colors
     local theme_colors = require("backpack.themes")[theme](updated_palette_colors)
 
