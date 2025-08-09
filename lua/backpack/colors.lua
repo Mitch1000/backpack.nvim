@@ -125,7 +125,7 @@ end
 --- @param color_modifier number
 local function darken_lighttheme_colors(color_modifier)
     palette.bright_purple = adjust_color_lightness(palette.bright_purple, 50 * color_modifier)
-    palette.stain_yellow = adjust_color_lightness(palette.bright_purple, 30 * color_modifier)
+    palette.stain_yellow = adjust_color_lightness(palette.stain_yellow, 30 * color_modifier)
     palette.extra_dark_blue = palette.dark10
     palette.forest_blue = adjust_color_lightness(palette.forest_blue, 30 * color_modifier)
     palette.green = adjust_color_lightness(palette.green, 25 * color_modifier)
