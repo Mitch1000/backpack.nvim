@@ -1,4 +1,6 @@
 --TODO:
+--
+--
 --PreProc needs its own color
 --parameter and field should be different
 ---@class SyntaxElements
@@ -107,17 +109,17 @@ return {
         bg_dim     = palette.dark0_hard,
         bg_gutter  = palette.background,
 
-        bg_m7      = palette.dark12,
-        bg_m6      = palette.dark10,
-        bg_m5      = palette.dark7,
-        bg_m4      = palette.dark4,
-        bg_m3      = palette.dark3,
-        bg_m2      = palette.dark2,
-        bg_m1      = palette.dark1,
-        fg_m1      = palette.light4,
-        bg         = palette.background,
-        bg_p1      = palette.dark4,
-        bg_p2      = palette.dark5,
+        bg_m7      = palette.baby_blue,
+        bg_m6      = palette.baby_blue,
+        bg_m5      = palette.baby_blue,
+        bg_m4      = palette.baby_blue,
+        bg_m3      = palette.baby_blue,
+        bg_m2      = palette.baby_blue,
+        bg_m1      = palette.baby_blue,
+        fg_m1      = palette.baby_blue,
+        bg         = palette.baby_blue,
+        bg_p1      = palette.baby_blue,
+        bg_p2      = palette.baby_blue,
 
         special    = palette.baby_blue,
         nontext    = palette.dark4,
@@ -170,7 +172,7 @@ return {
           punct      = palette.gray_244,
           special1   = palette.light12,
           special2   = palette.light11,
-          special3   = palette.rose,
+          special3   = palette.bright_purple,
           special4   = palette.light8,
       },
       vcs = {
@@ -205,10 +207,10 @@ return {
           palette.terminal_green, -- bright green
           palette.terminal_blue, -- bright blue 
           palette.dark_extra_light_blue, -- bright blue
-          palette.rose, -- bright magenta
+          palette.baby_blue, -- bright magenta
           palette.bright_neon_blue, -- bright cyan
           palette.light0, -- bright white
-          palette.rose, -- extended color 1
+          palette.baby_blue, -- extended color 1
           palette.dark_stain_yellow, -- extended color 2
       }
     }
@@ -217,9 +219,9 @@ return {
   light = function(palette)
     return {
       ui = {
-        fg         = palette.dark1,
-        fg_dim     = palette.dark2,
-        fg_bright  = palette.dark4,
+        fg         = palette.bright_red,
+        fg_dim     = palette.baby_blue,
+        fg_bright  = palette.baby_blue,
         fg_reverse = palette.extra_dark_blue,
 
         bg_dim     = palette.light0_hard,
@@ -232,10 +234,10 @@ return {
         bg_m3      = palette.light3,
         bg_m2      = palette.light2,
         bg_m1      = palette.light1,
-        fg_m1      = palette.dark4,
+        fg_m1      = palette.baby_blue,
         bg         = palette.background,
-        bg_p1      = palette.light4,
-        bg_p2      = palette.light5,
+        bg_p1      = palette.rose,
+        bg_p2      = palette.rose,
 
         special    = palette.baby_blue,
         nontext    = palette.light4,
@@ -246,7 +248,7 @@ return {
         bg_visual  = palette.light3,
 
         pmenu = {
-          fg       = palette.dark1,
+          fg       = palette.forest_blue,
           fg_sel   = "none", -- This is important to make highdarks pass-through
           bg       = palette.background,
           bg_sel   = palette.forest_blue,
@@ -256,7 +258,7 @@ return {
         float      = {
             fg        = palette.bright_purple,
             bg        = palette.background,
-            fg_border = palette.dark1,
+            fg_border = palette.terminal_blue,
             bg_border = palette.background,
         },
       },
@@ -265,18 +267,12 @@ return {
           variable   = "none",
           number     = palette.bright_purple,
           constant   = palette.extra_dark_blue,
-          identifier = palette.dark2,
-          -- parameter  = "#C3B1B1",
-          -- parameter  = "#B1ADC8",
-          -- parameter  = "#b8b4d0",
-          parameter  = palette.dark1,
-          -- parameter = "#d5a4a6",
-          -- parameter  = "#C8ADAD",
-          -- parameter  = "#d7a8a8",
+          identifier = palette.green,
+          parameter  = palette.green,
           fun        = palette.extra_dark_blue,
           statement  = palette.stain_yellow,
-          keyword    = palette.dark1,
-          operator   = palette.dark1,
+          keyword    = palette.dark_red,
+          operator   = palette.stain_yellow,
           preproc    = palette.bright_neon_blue,
           opkeyword  = palette.bright_red,
           type       = palette.green,
@@ -286,10 +282,10 @@ return {
           none       = palette.terminal_blue,
           comment    = palette.gray_244,
           punct      = palette.gray_244,
-          special1   = palette.dark12,
-          special2   = palette.dark11,
+          special1   = palette.extra_light_blue,
+          special2   = palette.extra_light_blue,
           special3   = palette.rose,
-          special4   = palette.dark8,
+          special4   = palette.extra_light_blue,
       },
       vcs = {
           added   = palette.green,
@@ -300,13 +296,13 @@ return {
           add    = palette.green,
           delete = palette.dark_red,
           change = palette.forest_blue,
-          text   = palette.dark1,
+          text   = palette.rose,
       },
       diag = {
           ok      = palette.green,
           error   = palette.dark_red,
           warning = palette.stain_yellow,
-          info    = palette.dark3,
+          info    = palette.forest_blue,
           hint    = palette.terminal_blue,
       },
       term = {
@@ -317,7 +313,7 @@ return {
           palette.baby_blue, -- blue
           palette.bright_purple, -- magenta
           palette.bright_neon_blue, -- cyan
-          palette.dark1, -- white
+          palette.dark_red, -- white
           palette.gray_244, -- bright black
           palette.bright_red, -- bright red
           palette.terminal_green, -- bright green
@@ -325,7 +321,7 @@ return {
           palette.extra_dark_blue, -- dark blue
           palette.rose, -- bright magenta
           palette.bright_neon_blue, -- bright cyan
-          palette.dark0, -- bright white
+          palette.baby_blue, -- bright white
           palette.rose, -- extended color 1
           palette.light_stain_yellow, -- extended color 2
       }
