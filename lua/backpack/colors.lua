@@ -150,12 +150,17 @@ function M.setup(opts)
         error("backpack.colors.setup(): Unable to infer `theme`. Either specify a theme or call this function after ':colorscheme backpack'")
     end
 
+    local contrast = opts.contrast
     if theme == "light" then
-      local mod = opts.contrast == "extreme" and 1.5 or 1
+      local mod = contrast == "extreme" and 1.5 or 1
       darken_lighttheme_colors(mod)
     end
 
-    palette.background = get_background(theme, opts.contrast)
+    if theme == "dark" and contrast == "extreme" then
+      palette.dark7 = adjust_color_lightness(palette.dark7, 50)
+    end
+
+    palette.background = get_background(theme, contrast)
 
     local updated_palette_colors = vim.tbl_extend("force", palette, override_colors.palette or {})
     -- Generate the theme according to the updated palette colors
