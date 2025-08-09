@@ -1,5 +1,7 @@
 --TODO:
 --PreProc needs its own color
+--
+
 --parameter and field should be different
 ---@class SyntaxElements
 ---@field string ColorSpec
@@ -300,7 +302,7 @@ return {
           add    = palette.green,
           delete = palette.dark_red,
           change = palette.forest_blue,
-          text   = palette.dark1,
+          text   = palette.light4,
       },
       diag = {
           ok      = palette.green,
