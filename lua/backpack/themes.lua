@@ -276,7 +276,7 @@ return {
           -- parameter  = "#C8ADAD",
           -- parameter  = "#d7a8a8",
           fun        = palette.extra_dark_blue,
-          statement  = palette.stain_yellow,
+          statement  = palette.dark2,
           keyword    = palette.dark1,
           operator   = palette.dark1,
           preproc    = palette.bright_neon_blue,
