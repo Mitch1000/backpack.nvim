@@ -1,4 +1,5 @@
 local vim = vim
+
 ---@class PaletteColors
 local full_palette = {
   background = {'#222222', 235},
@@ -72,6 +73,11 @@ for k, v in pairs(full_palette) do
   dark_palette[k] = v[1]
 end
 
+--- Get Backpack Colors
+--- @param theme string
+--- @param contrast string?
+--- @param palette table
+--- @return string
 local function get_background(theme, contrast, palette)
   local theme_contrast_values = {
     dark = { high = palette.dark6, extreme = palette.dark11, medium = palette.background },
@@ -118,6 +124,7 @@ end
 --- Darken Light Theme Colors:
 --- For darkening light theme colors to improve contrast
 --- @param color_modifier number
+--- @param palette table
 local function darken_lighttheme_colors(color_modifier, palette)
     light_palette.bright_purple = adjust_color_lightness(palette.bright_purple, 50 * color_modifier)
     light_palette.stain_yellow = adjust_color_lightness(palette.stain_yellow, 30 * color_modifier)
