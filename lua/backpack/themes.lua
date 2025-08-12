@@ -109,9 +109,9 @@ return {
         bg_dim     = palette.dark0_hard,
         bg_gutter  = palette.background,
 
-        bg_m7      = palette.dark12,
+        bg_m7      = palette.dark12, -- lua line bg
         bg_m6      = palette.dark10,
-        bg_m5      = palette.dark7,
+        bg_m5      = palette.dark7, -- inactive tab bg
         bg_m4      = palette.dark4,
         bg_m3      = palette.dark3,
         bg_m2      = palette.dark2,
