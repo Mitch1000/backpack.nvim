@@ -131,6 +131,7 @@ local function darken_lighttheme_colors(color_modifier)
     palette.green = adjust_color_lightness(palette.green, 25 * color_modifier)
     palette.bright_neon_blue = adjust_color_lightness(palette.bright_neon_blue, 30 * color_modifier)
     palette.baby_blue = adjust_color_lightness(palette.baby_blue, 100 * color_modifier)
+    palette.extra_light_blue = adjust_color_lightness(palette.extra_light_blue, 10 * color_modifier)
 end
 
 --- Generate colors table:
