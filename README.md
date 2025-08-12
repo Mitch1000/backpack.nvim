@@ -79,10 +79,12 @@ There is an option to disable P3 colors in the Advanced Settings tab.
   end
 ```
 
+
 ### 256 Color Support!
 
 To use 256 colors use `vim.cmd([[ set notermguicolors ]])` after the color scheme has loaded.
 
+![Backpack Contrast](https://github.com/user-attachments/assets/d54e9e77-8c09-4249-9496-ba5eac926e61)
 
 #### Thanks!!
 
