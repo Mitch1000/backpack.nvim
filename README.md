@@ -78,9 +78,9 @@ There is an option to disable P3 colors in the Advanced Settings tab.
     })
   end
 ```
-#### Change Contrast!
+### Change Contrast!
 
-<img width="1064" height="701" style= "width: 68%;" alt="Screenshot 2025-07-20 at 11 36 29 AM" src="https://github.com/user-attachments/assets/d54e9e77-8c09-4249-9496-ba5eac926e61" />
+<img width="1064" height="701" style= "width: 85%;" alt="Screenshot 2025-07-20 at 11 36 29 AM" src="https://github.com/user-attachments/assets/d54e9e77-8c09-4249-9496-ba5eac926e61" />
 
 ### 256 Color Support!
 
