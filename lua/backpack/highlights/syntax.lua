@@ -56,7 +56,7 @@ function M.setup(colors, config)
         --  Typedef	A typedef
 
         -- Special	any special symbol
-        -- Special = { fg = theme.syn.statement },
+        Special = { fg = theme.ui.special },
         --  SpecialChar	special character in a constant
         --  Tag		you can use CTRL-] on this
         --  Delimiter	character that needs attention
