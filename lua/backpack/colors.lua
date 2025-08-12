@@ -67,12 +67,12 @@ local full_palette = {
   dark_rose = {'#ff7eda', 212},
 }
 
-local palette  = {}
+local dark_palette  = {}
 for k, v in pairs(full_palette) do
-  palette[k] = v[1]
+  dark_palette[k] = v[1]
 end
 
-local function get_background(theme, contrast)
+local function get_background(theme, contrast, palette)
   local theme_contrast_values = {
     dark = { high = palette.dark6, extreme = palette.dark11, medium = palette.background },
     light = { high = palette.light10, extreme = palette.light10, medium = palette.light6 }
@@ -89,7 +89,6 @@ local M = {}
 local function clamp(component)
   return math.min(math.max(component, 0), 255)
 end
-
 --- Adjust color lightness
 --- @param color string
 --- @param amt number
@@ -98,40 +97,36 @@ local function adjust_color_lightness(color, amt)
   if type(color) ~= 'string' then
     return color
   end
-  local col = string.gsub(color, "#", "0x")
-  local num = tonumber(col, 16)
-  local r = clamp(math.floor(num / 0x10000) - amt)
-  local g = clamp((math.floor(num / 0x100) % 0x100) - amt)
-  local b = clamp((num % 0x100) - amt)
 
-  local rs = string.format("%#x", r * 0x10000)
-  if rs == "0" then rs = "0x00" end
-  local gs = string.format("%#x", g * 0x100)
-  if gs == "0" then gs = "0x00" end
-  local bs = string.format("%#x", b)
-  if bs == "0" then bs = "0x00" end
+  local r = tonumber(string.sub(color, 2, 3), 16)
+  local g = tonumber(string.sub(color, 4, 5), 16)
+  local b = tonumber(string.sub(color, 6, 7), 16)
 
-  local start = 3
-  local strend = 4
-  local red = string.sub(rs, start, strend)
-  local green = string.sub(gs, start, strend)
-  local blue = string.sub(bs, start, strend)
+  r = clamp(r - amt)
+  g = clamp(g - amt)
+  b = clamp(b - amt)
 
-  return [[#]] .. red .. green .. blue
+  return string.format("#%02x%02x%02x", r, g, b)
+end
+
+local light_palette = {}
+
+for k,v in pairs(dark_palette) do
+  light_palette[k] = v
 end
 
 --- Darken Light Theme Colors:
 --- For darkening light theme colors to improve contrast
 --- @param color_modifier number
-local function darken_lighttheme_colors(color_modifier)
-    palette.bright_purple = adjust_color_lightness(palette.bright_purple, 50 * color_modifier)
-    palette.stain_yellow = adjust_color_lightness(palette.stain_yellow, 30 * color_modifier)
-    palette.extra_dark_blue = palette.dark10
-    palette.forest_blue = adjust_color_lightness(palette.forest_blue, 30 * color_modifier)
-    palette.green = adjust_color_lightness(palette.green, 25 * color_modifier)
-    palette.bright_neon_blue = adjust_color_lightness(palette.bright_neon_blue, 30 * color_modifier)
-    palette.baby_blue = adjust_color_lightness(palette.baby_blue, 100 * color_modifier)
-    palette.extra_light_blue = adjust_color_lightness(palette.extra_light_blue, 10 * color_modifier)
+local function darken_lighttheme_colors(color_modifier, palette)
+    light_palette.bright_purple = adjust_color_lightness(palette.bright_purple, 50 * color_modifier)
+    light_palette.stain_yellow = adjust_color_lightness(palette.stain_yellow, 30 * color_modifier)
+    light_palette.extra_dark_blue = palette.dark10
+    light_palette.forest_blue = adjust_color_lightness(palette.forest_blue, 30 * color_modifier)
+    light_palette.green = adjust_color_lightness(palette.green, 25 * color_modifier)
+    light_palette.bright_neon_blue = adjust_color_lightness(palette.bright_neon_blue, 30 * color_modifier)
+    light_palette.baby_blue = adjust_color_lightness(palette.baby_blue, 100 * color_modifier)
+    light_palette.extra_light_blue = adjust_color_lightness(palette.extra_light_blue, 10 * color_modifier)
 end
 
 --- Generate colors table:
@@ -152,16 +147,23 @@ function M.setup(opts)
     end
 
     local contrast = opts.contrast
+    local palette = dark_palette
     if theme == "light" then
-      local mod = contrast == "extreme" and 1.5 or 1
-      darken_lighttheme_colors(mod)
+      local mod = contrast == "extreme" and 1.7 or 1
+      darken_lighttheme_colors(mod, palette)
+      palette = light_palette
     end
 
-    if theme == "dark" and contrast == "extreme" then
-      palette.dark7 = adjust_color_lightness(palette.dark7, 50)
+    if theme == "dark" then
+      if contrast == "extreme" then
+        palette.dark7 = adjust_color_lightness(palette.dark7, 50)
+        palette.dark12 = adjust_color_lightness(palette.dark12, 8)
+      elseif contrast == "high" then
+        palette.dark7 = adjust_color_lightness(palette.dark7, 3)
+      end
     end
 
-    palette.background = get_background(theme, contrast)
+    palette.background = get_background(theme, contrast, palette)
 
     local updated_palette_colors = vim.tbl_extend("force", palette, override_colors.palette or {})
     -- Generate the theme according to the updated palette colors
