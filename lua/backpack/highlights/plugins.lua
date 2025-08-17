@@ -485,7 +485,7 @@ function M.setup(colors, config)
         BufferAlternateIndex = { bg = theme.ui.bg_gutter, fg = theme.diag.info },
         BufferAlternateMod = { fg = theme.syn.special3 },
         BufferAlternateTarget = { bg = theme.ui.bg_gutter, fg = theme.ui.bg_gutter },
-        BufferCurrent = { bg = theme.ui.bg, fg = theme.syn.identifier },
+        BufferCurrent = { bg = bg, fg = theme.syn.identifier },
         BufferCurrentIndex = { bg = theme.ui.bg_gutter, fg = theme.diag.info },
         BufferCurrentMod = { bg = theme.ui.bg, fg = theme.syn.special3 },
         BufferCurrentSign = tabSignsCurrent,
