@@ -144,6 +144,7 @@ function M.setup(colors, config)
         ["@backpack.exp.tsx"] = { fg = theme.syn.opkeyword, italic = true },
         ["@backpack.default.tsx"] = { fg = theme.syn.constant, italic = true },
         ["@backpack.from.tsx"] = { fg = theme.syn.preproc },
+        ["@backpack.function.arrow"] = { fg = theme.ui.fg },
         -- End custom highlight groups
 
 
