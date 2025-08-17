@@ -19,6 +19,7 @@ function M.setup(colors, config)
         -- @variable.parameter.builtin     special parameters (e.g. `_`, `it`)
         -- @variable.member                object and struct fields
         ["@variable.member"] = { fg = theme.syn.identifier },
+        ["@variable.member.ruby"] = { fg = theme.syn.deprecated },
         --
         -- @constant (Constant)              constant identifiers
         ["@constant.cpp"] = { fg = theme.syn.type },
