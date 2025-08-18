@@ -42,6 +42,7 @@ function M.setup(colors, config)
         ["@lsp.mod.readonly.typescript"] = { fg = 'none' },
         ["@lsp.mod.readonly.javascript"] = { fg = 'none' },
         ["@lsp.mod.readonly.javascriptreact"] = { fg = 'none' },
+        ["@lsp.mod.readonly.vue"] = { fg = 'none' },
         ["@lsp.typemod.variable.declaration.javascript"] =  { fg = theme.syn.operator },
         ["@lsp.typemod.variable.declaration.typescript"] =  { fg = theme.syn.operator },
         ["@lsp.typemod.variable.declaration.typescriptreact"] =  { fg = theme.syn.operator },
