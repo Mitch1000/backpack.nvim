@@ -51,6 +51,11 @@ OR
 
 to your `init.lua` file.
 
+### Features
+
+- Extensive support for `TreeSitter` syntax highlighting, and _many_ popular plugins
+- Compilation to lua byte code for super fast startup times
+
 ### Options
 
 NOTE: If you are using iTerm2, you may want to use the sRGB color space for more accurate color reproduction. 
