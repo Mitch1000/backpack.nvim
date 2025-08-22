@@ -27,14 +27,14 @@ Installation Method
     Dein
         Add the following to your .vimrc, and run call dein#install():
 
-    call dein#add('Mitch1000/backpack')
+    call dein#add('Mitch1000/backpack.nvim')
 
     Packer
-        use {'mitch1000/backpack' }
+        use {'mitch1000/backpack.nvim' }
 
     Lazy
         {
-          'mitch1000/backpack',
+          'mitch1000/backpack.nvim',
           config = function ()
             require('backpack').setup()
           end
