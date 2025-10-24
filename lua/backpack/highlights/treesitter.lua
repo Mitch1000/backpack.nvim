@@ -14,6 +14,7 @@ function M.setup(colors, config)
         ["@variable.builtin"] = { fg = theme.syn.special2, italic = true },
         ["@variable.builtin.ruby"] = { fg = theme.syn.string },
         ["@variable.builtin.javascript"] = { fg = theme.syn.deprecated },
+        ["@variable.builtin.typescript"] = { fg = theme.syn.deprecated, italic = true },
         -- @variable.parameter             parameters of a function
         ["@variable.parameter"] = { fg = theme.syn.parameter },
         -- @variable.parameter.builtin     special parameters (e.g. `_`, `it`)
