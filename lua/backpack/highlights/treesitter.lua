@@ -176,6 +176,8 @@ function M.setup(colors, config)
         ["@keyword.exception.java"] = { fg = theme.syn.preproc },
         ["@keyword.exception.ruby"] = { fg = theme.syn.opkeyword },
         ["@keyword.exception.python"] = { fg = theme.syn.statement },
+        ["@keyword.exception.javascript"] = { fg = theme.syn.opkeyword },
+        ["@keyword.exception.typescript"] = { fg = theme.syn.opkeyword },
 
         ["@keyword.luap"] = { link = "@string.regex" },
         --

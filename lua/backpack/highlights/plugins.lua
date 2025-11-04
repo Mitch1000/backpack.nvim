@@ -648,6 +648,8 @@ function M.setup(colors, config)
         javaScriptString = { fg = theme.syn.string },
         javaScriptType = { fg = theme.vcs.added },
         jsArrowFunction = { fg = theme.syn.special3 },
+        jsTry = { fg = theme.syn.keyword, bold = true },
+        jsCatch = { fg = theme.syn.keyword, bold = true },
         jsAsyncKeyword = { fg = theme.vcs.removed },
         jsClassFuncName = { fg = theme.vcs.added },
         jsClassKeyword = { fg = theme.vcs.added },
