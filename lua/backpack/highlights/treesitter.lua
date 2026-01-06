@@ -21,6 +21,7 @@ function M.setup(colors, config)
         -- @variable.member                object and struct fields
         ["@variable.member"] = { fg = theme.syn.identifier },
         ["@variable.member.ruby"] = { fg = theme.syn.deprecated },
+        ["@variable.member.vue"] = { fg = theme.syn.type },
         --
         -- @constant (Constant)              constant identifiers
         ["@constant.cpp"] = { fg = theme.syn.type },
@@ -194,6 +195,7 @@ function M.setup(colors, config)
         ["@punctuation.bracket"] = { fg = theme.syn.punct },
         -- @punctuation.special    special symbols (e.g. `{}` in string interpolation)
         ["@punctuation.special"] = { fg = theme.syn.special1 },
+
         --
         -- @comment                line and block comments
         -- @comment.documentation  comments documenting code
