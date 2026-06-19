@@ -28,6 +28,7 @@ function M.setup(colors, config)
         GitSignsAdd = { fg = theme.vcs.added, bg = theme.ui.bg_gutter },
         GitSignsChange = { fg = theme.vcs.changed, bg = theme.ui.bg_gutter },
         GitSignsDelete = { fg = theme.vcs.removed, bg = theme.ui.bg_gutter },
+        VirtualColumn = { fg = theme.ui.bg_m1 },
         -- Neogit
         NeogitDiffContextHighlight = { bg = theme.diff.change }, --[[  guibg=#333333 guifg=#b2b2b2 ]]
         NeogitHunkHeader = { fg = theme.syn.fun }, --[[  guifg=#cccccc guibg=#404040 ]]
@@ -771,15 +772,15 @@ function M.setup(colors, config)
         rubyEntities = { fg = theme.ui.fg},
         rubyEntity = { fg = theme.syn.constant },
         rubyValidation = { fg = theme.ui.fg_dim },
-        rubyFunction = { fg = theme.vcs.removed },
+        rubyFunction = { fg = theme.syn.deprecated },
         rubySymbol = { fg = theme.syn.string },
         rubyCallback = { fg = theme.ui.fg },
         rubyMacro = { fg = theme.ui.special },
-        rubyInstanceVariable = { fg = theme.vcs.removed },
+        rubyInstanceVariable = { fg = theme.syn.deprecated },
         rubyInterpolationDelimiter = { fg = theme.syn.preproc },
         rubyString = { fg = theme.syn.string },
         rubyStringDelimiter = { fg = theme.syn.string },
-        rubyTestMacro = { fg = theme.vcs.changed, italic = true },
+        rubyTestMacro = { fg = theme.ui.fg_dim },
         scalaCaseFollowing = { fg = theme.diff.text },
         scalaCapitalWord = { fg = theme.diff.text },
         scalaInterpolation = { fg = theme.syn.preproc },

@@ -177,13 +177,13 @@ return {
       },
       vcs = {
           added   = palette.green,
-          removed = palette.forest_blue,
+          removed = palette.gray_244,
           changed = palette.bright_red,
       },
       diff = {
-          add    = palette.green,
-          delete = palette.dark_red,
-          change = palette.forest_blue,
+          add    = palette.dark12,
+          delete = palette.dark10,
+          change = palette.dark10,
           text   = palette.light1,
       },
       diag = {

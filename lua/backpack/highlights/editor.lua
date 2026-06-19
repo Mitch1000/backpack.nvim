@@ -10,7 +10,7 @@ function M.setup(colors, config)
 
     return {
         -- ColorColumn	Used for the columns set with 'colorcolumn'.
-        ColorColumn = { bg = theme.ui.bg_p1 },
+        ColorColumn = { bg = theme.syn.comment },
         -- Conceal		Placeholder characters substituted for concealed text (see 'conceallevel').
         Conceal = { fg = theme.ui.bg_m2 },
         -- CurSearch	Used for highlighting a search pattern under the cursor (see 'hlsearch').
