@@ -663,7 +663,7 @@ function M.setup(colors, config)
         jsFuncCall = { fg = theme.syn.fun },
         jsFuncName = { fg = theme.vcs.added },
         jsFuncParens = { fg = theme.diag.info },
-        jsFunction = { fg = theme.vcs.removed },
+        jsFunction = { fg = theme.syn.deprecated },
         jsGlobalNodeObjects = { fg = theme.syn.preproc },
         jsGlobalObjects = { fg = theme.syn.preproc, italic = true },
         jsImport = { fg = theme.syn.statement },
