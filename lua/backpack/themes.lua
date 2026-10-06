@@ -1,7 +1,6 @@
 --TODO:
 --PreProc needs its own color
 --
-
 --parameter and field should be different
 ---@class SyntaxElements
 ---@field string ColorSpec
@@ -170,9 +169,9 @@ return {
           none       = palette.terminal_blue,
           comment    = palette.gray_244,
           punct      = palette.gray_244,
-          special1   = palette.light12,
+          special1   = palette.dark4,
           special2   = palette.light11,
-          special3   = palette.rose,
+          special3   = palette.dark0_harder,
           special4   = palette.light8,
       },
       vcs = {
